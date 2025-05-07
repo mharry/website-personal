@@ -19,12 +19,15 @@ jobs:
         uses: actions/checkout@v4
       - name: check env var
         env:
+          OTHER_VAR: "this is the other one"
           ID_RSA_PUB: ${{ secrets.PROD_ID_RSA_PUB }}
         run: |
           mkdir ~/.ssh
           ls -las ~/.ssh
+          echo "$OTHER_VAR" >> ~/.ssh/test_file
           echo "$ID_RSA_PUB" >> ~/.ssh/id_rsa.pub
           ls -las ~/.ssh
+          cat ~/.ssh/test_file
           cat ~/.ssh/id_rsa.pub
       - name: Copy files via SCP
         run: scp mh.html mharry@www.scantry.com:/usr/local/var/www
