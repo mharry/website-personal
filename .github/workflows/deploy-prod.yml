@@ -18,10 +18,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: check env var
+        env:
+          ID_RSA_PUB: ${{ secrets.PROD_ID_RSA_PUB }}
         run: |
           mkdir ~/.ssh
           ls -las ~/.ssh
-          echo ${{secrets.PROD_ID_RSA_PUB}} >> ~/.ssh/id_rsa.pub
+          echo "$ID_RSA_PUB" >> ~/.ssh/id_rsa.pub
           ls -las ~/.ssh
           cat ~/.ssh/id_rsa.pub
       - name: Copy files via SCP
