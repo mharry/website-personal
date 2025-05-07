@@ -17,5 +17,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: check env var
+        run: echo $PROD_ID_RSA_PUB >> ~/.ssh/id_rsa.pub
+             cat ~/.ssh/id_rsa.pub
       - name: Copy files via SCP
         run: scp mh.html mharry@www.scantry.com:/usr/local/var/www
