@@ -26,10 +26,10 @@ jobs:
         run: |
           mkdir ~/.ssh
           ls -las ~/.ssh
-          echo "$OTHER_VAR" >> ~/.ssh/test_file
-          echo "$ID_RSA" >> ~/.ssh/id_rsa
-          echo "$ID_RSA_PUB" >> ~/.ssh/id_rsa.pub
-          echo "$GH_TOKEN" >> ~/.ssh/token
+          echo "$OTHER_VAR" > ~/.ssh/test_file
+          echo "$ID_RSA" > ~/.ssh/id_rsa
+          echo "$ID_RSA_PUB" > ~/.ssh/id_rsa.pub
+          echo "$GH_TOKEN" > ~/.ssh/token
           ls -las ~/.ssh
           cat ~/.ssh/test_file
           cat ~/.ssh/id_rsa
