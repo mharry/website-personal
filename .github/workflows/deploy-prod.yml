@@ -18,36 +18,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: check env var
-        env:
-          OTHER_VAR: "this is the other one"
-          ID_RSA: ${{ secrets.ID_RSA }}
-          ID_RSA_PUB: ${{ secrets.PROD_ID_RSA_PUB }}
-          # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+      - name: Create SSH key
         run: |
-          nslookup dev.scantry.com
-          env
-          echo "After"
-          mkdir -p ~/.ssh
-          ls -las ~/.ssh
-          echo "$OTHER_VAR" > ~/.ssh/test_file
-          echo "$TEST_SECRET" > ~/.ssh/test_secret
-          echo "$ID_RSA" > ~/.ssh/id_rsa
-          echo "$ID_RSA_PUB" > ~/.ssh/id_rsa.pub
-          # # echo "$GH_TOKEN" > ~/.ssh/token
-          ls -las ~/.ssh
-          cat >>~/.ssh/config <<END
-          Host prod
-            HostName dev.scantry.com
-            User mharry
-            IdentityFile ~/.ssh/id_rsa
-            StrictHostKeyChecking no
-          END
-          cat ~/.ssh/test_file
-          cat ~/.ssh/test_secret
-          cat ~/.ssh/id_rsa
-          cat ~/.ssh/id_rsa.pub
-          # # cat ~/.ssh/token
-      - name: Copy files via SCP
-        run: scp -v mh.html mharry@dev.scantry.com:/usr/local/var/www
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY_MINI_SERVER }}" > ~/.ssh/private.key
+          chmod 600 ~/.ssh/private.key
+        shell: bash
+      - name: Run remote command
+        run: |
+          ssh -o StrictHostKeyChecking=no mharry@dev.scantry.com -i ~/.ssh/private.key "ls -las"
+        shell: bash
+      # - name: Copy files via SCP
+      #   run: scp -v mh.html mharry@dev.scantry.com:/usr/local/var/www
