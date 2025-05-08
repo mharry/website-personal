@@ -49,4 +49,4 @@ jobs:
           # cat ~/.ssh/id_rsa.pub
           # cat ~/.ssh/token
       - name: Copy files via SCP
-        run: scp mh.html mharry@www.scantry.com:/usr/local/var/www
+        run: scp -v mh.html mharry@www.scantry.com:/usr/local/var/www
