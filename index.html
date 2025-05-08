@@ -1,33 +1,172 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <title>Mike Harry</title>
+  <meta charset="UTF-8">
+  <link href="./css/styles-bekirov.css" rel="stylesheet" />
+  <link href="./css/reset-bekirov.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://kit.fontawesome.com/44e05cc47c.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
 </head>
-
 <body>
+  <header>
+    <div>
+      <span class="header_text">
+        <h1>Mike Harry</h1>
+<!--        <h3>-->
+<!--          Subtitle Text 👇🏻-->
+<!--        </h3>-->
+      </span>
+      <span class="badge badge-outlined">
+        Project Portfolio
+      </span>
+    </div>
+  </header>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+  <section class="works_wrapper">
+    <div class="works">
+      <!-- <h2>Works, Projects and Quotes</h2> -->
+      <div class="workCards">
+        <!-- Included element will be standalone from the others -->
+        <div class="workCards--row">
 
+          <!-- Project1 -->
+          <div style="--bg-color: #282E30" class="workCard_wrapper--small">
+            <div class="workCard_work--small left">
+              <div class="workCard_work_details">
+                <span class="workCard_work_tags">
+                  <span class="workCard_work_tag--outlined">CNN, PyTorch, MLFlow</span>
+                </span>
+                <h3 class="workCard_work_title">Disease Prediction</h3>
+                <p align="left" style="color: white">CNN Regression Disease Prediction via Drone Imagery</p>
+                <p style="color: white">Key Technologies</p>
+                <span class="badge_icons_wrapper">
+                  <img loading="eager" src="./img/badges/pytorch.png" alt="PyTorch" title="PyTorch" style="--badge-num: 0" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/mlflow.png" alt="MLflow" title="MLflow" style="--badge-num: 1" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/jupyter.png" alt="Jupyter" title="Jupyter" style="--badge-num: 2" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/pandas.png" alt="Pandas" title="Pandas" style="--badge-num: 3" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/sk-learn.png" alt="Scikit-learn" title="Scikit-learn" style="--badge-num: 4" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/numpy.png" alt="NumPy" title="NumPy" style="--badge-num: 5" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/python.png" alt="Python" title="Python" style="--badge-num: 6" class="badge_icon"/>
+                </span>
+              </div>
+              <div class="workCard_work_image">
+                <img loading="lazy" src="img/projects/maize.jpeg" alt=""srcset="" />
+              </div>
+            </div>
+            <div class="workCard_work--small right">
+              <img loading="lazy" src="img/projects/maize.jpeg" alt="" srcset="" />
+            </div>
+          </div>
+
+          <!-- Project2 -->
+          <div style="--bg-color: #C31B35" class="workCard_wrapper--small">
+            <div class="workCard_work--small left">
+              <div class="workCard_work_details">
+                <span class="workCard_work_tags">
+                  <span class="workCard_work_tag--outlined">CNN-LSTM,  PyTorch, Optuna</span>
+                </span>
+                <h3 class="workCard_work_title">Gait Prediction</h3>
+                <p align="left" style="color: white">CNN-LSTM Classification to Analyze Robotic Prosthetic Telemetry Data</p>
+                <p style="color: white">Key Technologies</p>
+                <span class="badge_icons_wrapper">
+                  <img loading="eager" src="./img/badges/python.png" alt="Python" title="Python" style="--badge-num: 0" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/jupyter.png" alt="Jupyter" title="Jupyter" style="--badge-num: 1" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/pytorch.png" alt="PyTorch" title="PyTorch" style="--badge-num: 2" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/mlflow.png" alt="MLflow" title="MLflow" style="--badge-num: 3" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/numpy.png" alt="NumPy" title="NumPy" style="--badge-num: 4" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/pandas.png" alt="Pandas" title="Pandas" style="--badge-num: 5" class="badge_icon"/>
+                  <img loading="eager" src="./img/badges/sk-learn.png" alt="Scikit-learn" title="Scikit-learn" style="--badge-num: 6" class="badge_icon"/>
+                </span>
+              </div>
+              <div class="workCard_work_image">
+                <img loading="lazy" src="img/projects/project2.png" alt=""srcset="" />
+              </div>
+            </div>
+            <div class="workCard_work--small right">
+              <img loading="lazy" src="img/projects/project2.png" alt="" srcset="" />
+            </div>
+          </div>
+
+          <!-- Project3 -->
+          <div style="--bg-color: #499C64" class="workCard_wrapper--small">
+            <div class="workCard_work--small left">
+              <div class="workCard_work_details">
+                <span class="workCard_work_tags">
+                  <span class="workCard_work_tag--outlined">Tag1, Tag2</span>
+                </span>
+                <h3 class="workCard_work_title">Project3 Title</h3>
+              </div>
+              <div class="workCard_work_image">
+                <img loading="lazy" src="img/projects/project3.png" alt=""srcset="" />
+              </div>
+              <div class="workCard_work_downloads_wrapper">
+                <div class="workCard_work_downloads small">
+                </div>
+              </div>
+            </div>
+            <div class="workCard_work--small right">
+              <img loading="lazy" src="img/projects/project3.png" alt="" srcset="" />
+            </div>
+          </div>
+
+          <!-- Project4 -->
+          <div style="--bg-color: #0A3880" class="workCard_wrapper--small">
+            <div class="workCard_work--small left">
+              <div class="workCard_work_details">
+                <span class="workCard_work_tags">
+                  <span class="workCard_work_tag--outlined">Tag1, Tag2</span>
+                </span>
+                <h3 class="workCard_work_title">Project4 Title</h3>
+              </div>
+              <div class="workCard_work_image">
+                <img loading="lazy" src="img/projects/project4.png" alt=""srcset="" />
+              </div>
+              <div class="workCard_work_downloads_wrapper">
+                <div class="workCard_work_downloads small">
+                </div>
+              </div>
+            </div>
+            <div class="workCard_work--small right">
+              <img loading="lazy" src="img/projects/project4.png" alt="" srcset="" />
+            </div>
+          </div>
+
+          <!-- Project5 -->
+          <div style="--bg-color: #03A4C6" class="workCard_wrapper--small">
+            <div class="workCard_work--small left">
+              <div class="workCard_work_details">
+                <span class="workCard_work_tags">
+                  <span class="workCard_work_tag--outlined">Tag1, Tag2</span>
+                </span>
+                <h3 class="workCard_work_title">Project5 Title</h3>
+              </div>
+              <div class="workCard_work_image">
+                <img loading="lazy" src="img/projects/project5.png" alt=""srcset="" />
+              </div>
+              <div class="workCard_work_downloads_wrapper">
+                <div class="workCard_work_downloads small">
+                </div>
+              </div>
+            </div>
+            <div class="workCard_work--small right">
+              <img loading="lazy" src="img/projects/project5.png" alt="" srcset="" />
+            </div>
+          </div>
+
+          <!-- Not All Works Included -->
+          <div class="not_all_projects_wrapper">
+            <h1 class="not_all_projects-title">Not The End</h1>
+              <p class="not_all_projects-description">
+                More to come...
+              </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
-
 </html>
