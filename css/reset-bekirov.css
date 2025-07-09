@@ -36,11 +36,13 @@ a {
 }
 
 /* Remove default styling for lists */
+/*
 ul,
 ol,
 li {
   list-style: none;
 }
+*/
 
 /* Remove default styling for images */
 img {
