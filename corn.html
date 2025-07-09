@@ -21,6 +21,10 @@
       margin-bottom: 3cm;
     }
 
+h3 {
+  color: white;
+}
+
 .rounded-div {
   display: flex;
   flex-direction: column;
@@ -37,16 +41,56 @@
   background-color: #C31B35;
   border-radius: 36px; /* Adjust the value for the desired roundness */
 }
+
+.title {
+  /*font-size: 2em;*/
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 52px;
+  text-align: center;
+}
+
+.description_text {
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
 </style>
+
 
 
   <section>
     <div class="rounded-div">
-      <p>Something here.</p>
+      <h2 class="title">Crop Disease Prediction</h2>
 
-      <p>Something there</p>
+      <H3>Project Overview</H3>
 
-      <p>Something everywhere</p>
+      <p class="description_text">
+        The goal of this project was to develop a machine learning model that could
+        accurately predict the severity of corn diseases based on drone imagery. We
+        implemented a CNN architecture to extract features from the images and trained the
+        model using a dataset of labeled images.
+
+      <H3>Data</H3>
+        <p class="description_text">
+          Show images of scoring scale
+        <p class="description_text">
+          Show example data images at each score level
+
+      <H3>Model Implementation</H3>
+      List and discuss models implemented
+
+      Discuss use of MLflow
+
+      <H3>Training and Performance Analysis</H3>
+      Show model performance results
+
     </div>
   </section>
 </body>
