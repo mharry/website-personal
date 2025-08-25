@@ -32,11 +32,29 @@
       <div style="overflow: hidden;">
         <h2><u>Data</u></h2>
         <img src="./img/projects/corn/scoring-scale.png" title="Disease Scoring" alt="Disease Scoring Image"
-             style="float: right; margin-left: 20px;">
+             style="float: right; margin-left: 20px; height: 200px">
         <p>
-          The project aims to develop a deep learning model that can accurately predict the severity of Southern Leaf
-          Blight in corn plants using drone imagery. This approach seeks to automate and improve the accuracy of disease
-          assessment in corn breeding programs.
+          The dataset is composed of approximately 10,000 images of the plants and associated foliage health scores
+          on a scale of 1 (highly diseased) to 9 (no disease) with 0.5 size increments. Disease severity scores were
+          collected by PhD students and researchers in plant pathology over two years.
+        </p>
+        <p>
+          Numerous CNN models were trained and tested to evaluate custom model architectures as well as off the
+          shelf model implementations including EfficientNetv2 and ResNet.  Custom models were implemented in PyTorch
+          and using Optuna and MLFlow we were able to train and test numerous variations of convolutional and fully
+          connected layers, adjusting both the depth and width of the models.  Initial training struggled to learn the
+          data effectively with accuracy remaining below 40%.  Deeper evaluation of the images used for training led us
+          to suspect that the models were having difficulty identifying and focusing on appropriate corn foliage and
+          disease features and were not able to filter out and ignore the other non-relevant features in the images like
+          non-corn vegetation, soil and shadows.
+        </p>
+        <img src="./img/projects/corn/corn-image-augmentation.png" title="Corn Image Filtering"
+             alt="Corn Image Filtering" style="float: left; margin-right: 20px; width: 400px">
+        <p>
+          To augment our training images, we decided to segment the images to filter out the non-relevant features and
+          allow the models train on images that were segmented and filtered to focus on the corn foliage using
+          Facebook's Segment Anything Model 2.  These images show an example of the original image, image mask and
+          filtered image transition used to augment the training images.
         </p>
       </div>
 
@@ -46,39 +64,35 @@
       <div style="overflow: hidden;">
         <h2><u>Model Implementation</u></h2>
         <p>
-          List and discuss models implemented.
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-          survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. Lorem Ipsum.
+          Using image masking and filtered images for training and testing significantly improved the ability of our
+          models to effectively learn the data, raising early accuracy scores above 80%.  Model training and evaluation
+          is still underway with a focus optimizing our custom model implementation to find an optimal blend of
+          convolutional and fully connected layer depth and widths.
         </p>
         <img src="./img/projects/corn/cnn-arch.png" title="Disease Scoring" alt="Disease Scoring Image"
              style="float: left; margin-right: 15px; background: white;">
+
+        <br>
         <p>
-          List and discuss models implemented.
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-          survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
-          in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          Model performance metrics will be added here in early September 2025...
         </p>
       </div>
+
+      <br>
 
       <div>
         <h2><u>Tech Stack</u></h2>
         <p>
-          Discuss use of MLflow
+          <em>Provide details of MLFlow, Optuna, Python implemented custom CNN</em>
         </p>
       </div>
 
-      <div>
-        <h2><u>Training and Performance Analysis</u></h2>
-        <p>
-          Show model performance results
-        </p>
-      </div>
+<!--      <div>-->
+<!--        <h2><u>Training and Performance Analysis</u></h2>-->
+<!--        <p>-->
+<!--          Show model performance results-->
+<!--        </p>-->
+<!--      </div>-->
     </div>
   </body>
 </html>
