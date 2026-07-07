@@ -8,8 +8,8 @@ const base = import.meta.env.BASE_URL;
       <span class="header_text">
         <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
           <h1 style="margin: 0;">Mike Harry</h1>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#resume" style="font-size: 13px; padding: 4px 16px; white-space: nowrap;">
-            Résumé
+          <button id="resume-btn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#resume" style="font-size: 13px; padding: 4px 16px; white-space: nowrap;">
+            Show Résumé...
           </button>
         </div>
         <div class="resume_wrapper">
@@ -210,7 +210,92 @@ const base = import.meta.env.BASE_URL;
   <section class="portfolioPage">
     <div class="portfolioCards">
 
-      <!-- Project1: WARP Swarm -->
+      <!-- Project1: WARP -->
+      <div style="--bg-color: #000F3A" class="portfolioCard" onclick={`window.location.href='${base}warp.html'`}>
+        <canvas id="warp-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 2;">May '26</span>
+        <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">Claude Code, Agentic SDLC, Live Worklog</span>
+          </div>
+          <a href={`${base}warp.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">W·A·R·P <span style="font-size: 0.65em; font-weight: 600;">— <span style="font-size: 1.5em;">W</span><span style="font-size: 0.8em;">IBEY</span> <span style="font-size: 1.5em;">A</span><span style="font-size: 0.8em;">gentic</span> <span style="font-size: 1.5em;">R</span><span style="font-size: 0.8em;">elease</span> <span style="font-size: 1.5em;">P</span><span style="font-size: 0.8em;">ipeline</span></span></h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 35%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">Self-healing, end-to-end SDLC automation, purpose-built for Walmart engineers.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/wibey.png" alt="Wibey" title="Wibey" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/claude.svg" alt="Claude" title="Claude" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/vscode-icon.svg" alt="VSCode" title="VSCode" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/make.svg" alt="GNU Make" title="GNU Make" style="--badge-num: 3" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right" style="width: 65%; display: flex; align-items: center; justify-content: center; padding: 8px 12px;">
+          <div style="width: 100%; display: flex; align-items: center; gap: 0; background: rgba(0,15,58,0.32); border-radius: 10px; padding: 14px 12px;">
+            <!-- JIRA input -->
+            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 5px; border: 1.5px solid #FFC220; border-radius: 7px; background: #0a1550; min-width: 32px;">
+              <div style="width: 20px; height: 22px; border: 1.5px solid #FFC220; border-radius: 3px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 3px;">
+                <div style="position: absolute; top: -5px; width: 10px; height: 6px; background: #FFC220; border-radius: 2px;"></div>
+                <div style="width: 13px; height: 1px; background: rgba(255,194,32,0.55); margin-bottom: 3px;"></div>
+                <div style="width: 13px; height: 1px; background: rgba(255,194,32,0.55);"></div>
+              </div>
+              <span style="font-size: 8px; color: #FFC220; font-weight: 700; letter-spacing: 0.5px; white-space: nowrap;">JIRA</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- Phase 1 -->
+            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #1a5276; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🔨</span>
+              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 1</span>
+              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Build</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- Phase 2 -->
+            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #1a5e2a; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🔬</span>
+              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 2</span>
+              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Test</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- Phase 3 -->
+            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #7d3000; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🚀</span>
+              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 3</span>
+              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Deploy</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- PROD READY -->
+            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 5px; border: 1.5px solid #27ae60; border-radius: 7px; background: #0d2b1a; min-width: 32px;">
+              <div style="width: 20px; height: 20px; border: 1px solid #27ae60; border-radius: 50%; background: rgba(39,174,96,0.18); display: flex; align-items: center; justify-content: center;">
+                <span style="color: #27ae60; font-size: 11px; line-height: 1;">✓</span>
+              </div>
+              <span style="font-size: 8px; color: #27ae60; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap;">PROD</span>
+              <span style="font-size: 8px; color: #27ae60; white-space: nowrap;">READY</span>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project2: WARP Swarm -->
       <div style="--bg-color: #0E5E4E" class="portfolioCard" onclick={`window.location.href='${base}warp-swarm.html'`}>
         <canvas id="swarm-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
         <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 2;">June '26</span>
@@ -314,91 +399,6 @@ const base = import.meta.env.BASE_URL;
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project2: WARP -->
-      <div style="--bg-color: #000F3A" class="portfolioCard" onclick={`window.location.href='${base}warp.html'`}>
-        <canvas id="warp-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
-        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 2;">May '26</span>
-        <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
-          <div style="padding: 14px 24px 0;">
-            <span class="portfolioCardTags">Claude Code, Agentic SDLC, Live Worklog</span>
-          </div>
-          <a href={`${base}warp.html`} class="stretched-link" style="padding: 4px 24px 0;">
-            <h3 class="portfolioCardTitle">W·A·R·P <span style="font-size: 0.65em; font-weight: 600;">— <span style="font-size: 1.5em;">W</span><span style="font-size: 0.8em;">IBEY</span> <span style="font-size: 1.5em;">A</span><span style="font-size: 0.8em;">gentic</span> <span style="font-size: 1.5em;">R</span><span style="font-size: 0.8em;">elease</span> <span style="font-size: 1.5em;">P</span><span style="font-size: 0.8em;">ipeline</span></span></h3>
-          </a>
-          <div style="display: flex; flex: 1; overflow: hidden;">
-        <div class="portfolioCardX left" style="width: 35%;">
-          <div class="portfolioCardContent">
-            <p align="left" style="color: white">Self-healing, end-to-end SDLC automation, purpose-built for Walmart engineers.</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
-            <span class="badge_icons_wrapper">
-              <img loading="eager" src="./img/badges/wibey.png" alt="Wibey" title="Wibey" style="--badge-num: 0" class="badge_icon"/>
-              <img loading="eager" src="./img/badges/claude.svg" alt="Claude" title="Claude" style="--badge-num: 1" class="badge_icon"/>
-              <img loading="eager" src="./img/badges/vscode-icon.svg" alt="VSCode" title="VSCode" style="--badge-num: 2" class="badge_icon"/>
-              <img loading="eager" src="./img/badges/make.svg" alt="GNU Make" title="GNU Make" style="--badge-num: 3" class="badge_icon"/>
-            </span>
-          </div>
-        </div>
-        <div class="portfolioCardX right" style="width: 65%; display: flex; align-items: center; justify-content: center; padding: 8px 12px;">
-          <div style="width: 100%; display: flex; align-items: center; gap: 0; background: rgba(0,15,58,0.32); border-radius: 10px; padding: 14px 12px;">
-            <!-- JIRA input -->
-            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 5px; border: 1.5px solid #FFC220; border-radius: 7px; background: #0a1550; min-width: 32px;">
-              <div style="width: 20px; height: 22px; border: 1.5px solid #FFC220; border-radius: 3px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 3px;">
-                <div style="position: absolute; top: -5px; width: 10px; height: 6px; background: #FFC220; border-radius: 2px;"></div>
-                <div style="width: 13px; height: 1px; background: rgba(255,194,32,0.55); margin-bottom: 3px;"></div>
-                <div style="width: 13px; height: 1px; background: rgba(255,194,32,0.55);"></div>
-              </div>
-              <span style="font-size: 8px; color: #FFC220; font-weight: 700; letter-spacing: 0.5px; white-space: nowrap;">JIRA</span>
-            </div>
-            <!-- Arrow -->
-            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
-              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
-            </div>
-            <!-- Phase 1 -->
-            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #1a5276; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
-              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🔨</span>
-              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 1</span>
-              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Build</span>
-            </div>
-            <!-- Arrow -->
-            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
-              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
-            </div>
-            <!-- Phase 2 -->
-            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #1a5e2a; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
-              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🔬</span>
-              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 2</span>
-              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Test</span>
-            </div>
-            <!-- Arrow -->
-            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
-              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
-            </div>
-            <!-- Phase 3 -->
-            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #7d3000; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
-              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🚀</span>
-              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 3</span>
-              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Deploy</span>
-            </div>
-            <!-- Arrow -->
-            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
-              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
-            </div>
-            <!-- PROD READY -->
-            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 5px; border: 1.5px solid #27ae60; border-radius: 7px; background: #0d2b1a; min-width: 32px;">
-              <div style="width: 20px; height: 20px; border: 1px solid #27ae60; border-radius: 50%; background: rgba(39,174,96,0.18); display: flex; align-items: center; justify-content: center;">
-                <span style="color: #27ae60; font-size: 11px; line-height: 1;">✓</span>
-              </div>
-              <span style="font-size: 8px; color: #27ae60; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap;">PROD</span>
-              <span style="font-size: 8px; color: #27ae60; white-space: nowrap;">READY</span>
-            </div>
           </div>
         </div>
           </div>
@@ -798,4 +798,12 @@ const base = import.meta.env.BASE_URL;
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
 })();
+</script>
+<script>
+  const resumeEl = document.getElementById('resume');
+  const resumeBtn = document.getElementById('resume-btn');
+  if (resumeEl && resumeBtn) {
+    resumeEl.addEventListener('show.bs.collapse', () => { resumeBtn.textContent = 'Hide Résumé...'; resumeBtn.classList.replace('btn-primary', 'btn-secondary'); });
+    resumeEl.addEventListener('hide.bs.collapse', () => { resumeBtn.textContent = 'Show Résumé...'; resumeBtn.classList.replace('btn-secondary', 'btn-primary'); });
+  }
 </script>
