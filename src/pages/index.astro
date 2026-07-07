@@ -1,0 +1,801 @@
+---
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<PortfolioLayout title="Mike Harry - Agentic AI & ML Portfolio">
+  <header>
+    <div>
+      <span class="header_text">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+          <h1 style="margin: 0;">Mike Harry</h1>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#resume" style="font-size: 13px; padding: 4px 16px; white-space: nowrap;">
+            Résumé
+          </button>
+        </div>
+        <div class="resume_wrapper">
+    <div id="resume" class="collapse">
+      <div class="resume-content">
+
+        <div class="header">
+          <img src="img/mh-headshot.jpg" alt="Michael Harry" class="headshot" />
+          <h1>Michael Harry</h1>
+          <div class="contact">
+            (919) 917-3177 <span>|</span>
+            <a href="mailto:michaelharry88@gmail.com">michaelharry88@gmail.com</a> <span>|</span>
+            Apex, NC
+          </div>
+          <div class="contact" style="margin-top: 3pt;">
+            <a href="http://mikeharry.info">mikeharry.info</a> <span>|</span>
+            <a href="https://www.linkedin.com/in/michaelharry88/">linkedin.com/in/michaelharry88</a>
+          </div>
+        </div>
+
+        <h2>Summary</h2>
+        <div class="summary">
+          <div class="summary-para">Distinguished Architect/Engineer with 20+ years of experience designing and delivering developer platforms, tool ecosystems, and cloud-native infrastructure at enterprise scale.</div>
+          <div class="summary-para">I am currently focused on generative AI and agentic systems to accelerate developer productivity and increase quality. I am both a strategic leader, responsible for the generative AI roadmap for Walmart's Enterprise and Cloud Infrastructure team, and a hands-on builder of early-stage, emerging technology solutions, carrying them from proof of concept through production-grade, enterprise systems.</div>
+          <div class="summary-para">I combine deep cloud-native infrastructure experience with full-stack development, machine learning foundations, and a track record of building self-service systems that compress delivery by orders of magnitude and transform how engineering teams work.</div>
+        </div>
+
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="label">GenAI &amp; Agents</div>
+          <div class="value">WIBEY (Walmart AI Agentic Platform), Claude, Copilot, MCP Server Development, LLM Integration (MCP and A2A), AI-Augmented Development &amp; Testing</div>
+
+          <div class="label">Languages &amp; Tools</div>
+          <div class="value">Python (multi-threaded), FastMCP, FastAPI, Flask, pytest, Shell Scripting, Java/J2EE (multi-threaded), Spring, React, Vite, Tailwind CSS, Vaadin, REST, TypeScript, JavaScript, Node.js, SQL, HTML/CSS, C/C++</div>
+
+          <div class="label">ML &amp; Data Science</div>
+          <div class="value">PyTorch, MLFlow, Optuna, scikit-learn, pandas, NumPy, Jupyter Notebooks, R</div>
+
+          <div class="label">Cloud &amp; Infra</div>
+          <div class="value">GCP Services (Compute, Cloud Functions, BigQuery, IAM, Dataproc, GCS, Log Sinks), Azure, OpenStack, WCNP (Kubernetes), Docker, Rancher, Swarm</div>
+
+          <div class="label">Enterprise Platforms</div>
+          <div class="value">KITT CI/CD (Argo CD / GitHub Actions), Concord (Argo Workflows), OneOps (Terraform/Ansible), PingFederate (OAuth 2.0), Akeyless (HashiCorp Vault), SonarQube, Snyk, GitHub, Looper (Jenkins), DPaaS (Dataproc), AFaaS (Airflow), Prometheus, Grafana, OpenTelemetry, PostgreSQL, BigQuery, MySQL, Kafka, JMS</div>
+        </div>
+
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Walmart Global Technology</span>
+            <span class="job-location">Sunnyvale, CA (Remote)</span>
+          </div>
+          <div class="job-role">
+            <span class="job-title">Distinguished Architect/Engineer</span>
+            <span class="job-dates">January 2025 – Present</span>
+          </div>
+          <ul>
+            <li>Own roadmap and technical strategy for developer productivity, tools, and processes for WIBEY, Walmart's agentic orchestration platform for developers</li>
+            <li>Architect and hands-on lead for PoC-to-production delivery of MCP Servers, shared WIBEY workflow Skills, and generative AI management dashboards</li>
+            <li>Design and build autonomous, self-healing end-to-end SDLC agent workflows that drive measurable gains in delivery velocity and code quality</li>
+            <li>Mentor senior engineers and drive team-wide adoption of AI-augmented development practices across the organization</li>
+          </ul>
+          <div class="job-role">
+            <span class="job-title">Principal Cloud &amp; Data Architect/Engineer</span>
+            <span class="job-dates">February 2022 – January 2025</span>
+          </div>
+          <ul>
+            <li>Led architecture for Walmart's multicloud capacity management and optimization platform across OpenStack, GCP, and Azure — unifying compute, storage, and network visibility across private and public cloud estates</li>
+            <li>Designed ML forecasting models to predict client demand and infrastructure needs, enabling proactive capacity planning and rightsizing across regions and cloud providers</li>
+          </ul>
+
+          <div class="job-role">
+            <span class="job-title">Cloud / Big Data Platform Architect</span>
+            <span class="job-dates">September 2016 – January 2022</span>
+          </div>
+          <ul>
+            <li>Led team of 20 globally dispersed architects, engineers, and contractors through transformation from system administration to a DevOps model emphasizing automation and self-service</li>
+            <li>Architect and lead engineer for migration of Walmart's on-prem big data platforms to public cloud; designed the Team Spaces, DPaaS and AFaaS infrastructure provisioning system enabling self-service ephemeral clusters, reducing delivery time from days to minutes</li>
+            <li>Implemented Infrastructure as Code (IaC) practices with automated maintenance, upgrades, and CI/CD pipelines using Python, Airflow, Jenkins, Git and JSON</li>
+            <li>Developed cloud-native architectures enabling eCommerce teams to deploy mission-critical applications to private cloud platforms with full CI/CD, regression testing, and security inspection</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Cisco Systems</span>
+            <span class="job-location">Research Triangle Park, NC</span>
+          </div>
+          <div class="job-role">
+            <span class="job-title">Cloud &amp; Compute Domain Architect</span>
+            <span class="job-dates">May 2010 – September 2016</span>
+          </div>
+          <ul>
+            <li>Owned the architecture blueprint and technology roadmap for Cisco IT's global data center compute, storage, and virtualization infrastructure, standardized across OpenStack, VMware, Docker, and Cisco UCS</li>
+            <li>Designed and delivered Containers as a Service (CaaS) platform supporting multi-tenant microservices using Docker, Kubernetes, and OpenShift, built iteratively using Agile sprints</li>
+            <li>Consolidated disparate IaaS and PaaS provisioning into a unified self-service portal for compute, storage, network and application services, reducing provisioning times from weeks to minutes</li>
+            <li>Converged compute resources into a general-purpose shared pool, eliminating application-specific infrastructure silos and achieving a 300% increase in resource efficiency</li>
+            <li>Solution Architect for Metro Virtual Data Center (MVDC), a dual-datacenter resiliency system enabling failover for loss of an entire facility within a single metro region</li>
+          </ul>
+
+          <div class="job-role">
+            <span class="job-title">Developer Productivity Architect</span>
+            <span class="job-dates">January 2006 – May 2010</span>
+          </div>
+          <ul>
+            <li>Led the creation of the inaugural Cisco IT Development Frameworks and Tools (DFT) team to standardize enterprise-wide SDLC: tool selection, frameworks, testing (unit, functional and security), packaging, deployment, source control, and runtime monitoring</li>
+            <li>Managed a team of architects, PMs, and engineers delivering SDLC tooling and establishing standards across all Cisco IT engineering departments</li>
+            <li>Implemented Eclipse IDE plugins to automate setup and scaffolding of standardized frameworks, tools and processes</li>
+            <li>Introduced Agile development practices across a 22-person, globally distributed team</li>
+          </ul>
+
+          <div class="job-role">
+            <span class="job-title">Senior Architect</span>
+            <span class="job-dates">February 2001 – January 2006</span>
+          </div>
+          <ul>
+            <li>Architected and led engineering of an integrated suite of web-based developer tools including bug tracking, project management, workflow management, and an information portal, used enterprise-wide by Cisco engineering teams</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">BuildNet</span>
+            <span class="job-location">Research Triangle Park, NC</span>
+          </div>
+          <div class="job-role">
+            <span class="job-title">Chief Architect / Director of IT Applications</span>
+            <span class="job-dates">March 1997 – February 2001</span>
+          </div>
+          <ul>
+            <li>Owned the overall architecture and design of the BuildNet system, including subsystems for e-business, online catalog, member information, access control, and product data management</li>
+            <li>Responsible for the successful deployment of 8 new corporate information systems including enterprise-wide sales, support, marketing, billing, financial, budgeting, HR and payroll systems</li>
+            <li>Starting with 1 member, grew team to over 25 people, establishing an exceptional team for customizing, deploying, and supporting the BuildNet Enterprise IT Applications</li>
+            <li>Responsible for staffing, budget planning and administration, strategic planning, and inter-department coordination for all aspects of enterprise information systems</li>
+          </ul>
+        </div>
+
+        <h2>Additional Experience</h2>
+        <div class="additional-exp">
+          <div class="add-role">
+            <div><span class="add-company">Questra Consulting</span>, <span class="add-title">Software Engineer</span></div>
+            <span class="add-dates">1995 – 1997</span>
+          </div>
+          <div class="add-role">
+            <div><span class="add-company">Northeast Parallel Architectures Center (Syracuse University)</span>, <span class="add-title">Research Assistant</span></div>
+            <span class="add-dates">1993 – 1995</span>
+          </div>
+          <div class="add-role">
+            <div><span class="add-company">U.S. Naval Academy</span>, <span class="add-title">Systems Programmer</span></div>
+            <span class="add-dates">1992 – 1993</span>
+          </div>
+        </div>
+
+        <h2>Education</h2>
+        <div class="edu-item">
+          <span class="degree">Postgraduate Coursework</span>
+          <div class="edu-row edu-detail">
+            <span><strong>Computer Science / Data Science</strong> · North Carolina State University</span>
+            <span class="school">2005 – 2025</span>
+          </div>
+          <div class="edu-detail">Neural Networks (2025) · Automated Learning &amp; Data Analysis (2023)</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-row">
+            <div><span class="degree">M.S. Computer Science</span> · Syracuse University</div>
+            <div class="school">1995</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-row">
+            <div><span class="degree">B.S. Computer Science</span> · Rochester Institute of Technology</div>
+            <div class="school">1993</div>
+          </div>
+        </div>
+
+        <h2>Certifications</h2>
+        <ul class="certs">
+          <li>IBM Computer Vision &amp; Deep Learning Specialization (6-Course Certificate)</li>
+          <li>Johns Hopkins Data Science Specialization (10-Course Certificate)</li>
+          <li>Certified Scrum Master (Scrum.org PSM I)</li>
+        </ul>
+
+      <div style="display: flex; justify-content: center; padding: 16px 0 8px;">
+        <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#resume" style="font-size: 13px;">
+          Hide Résumé ↑
+        </button>
+      </div>
+      </div>
+    </div>
+        </div>
+        <h3 class="header_chiclet">
+          Agentic AI, Machine Learning and Computer Vision Project Portfolio
+        </h3>
+      </span>
+    </div>
+  </header>
+
+  <section class="portfolioPage">
+    <div class="portfolioCards">
+
+      <!-- Project1: WARP Swarm -->
+      <div style="--bg-color: #0E5E4E" class="portfolioCard" onclick={`window.location.href='${base}warp-swarm.html'`}>
+        <canvas id="swarm-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 2;">June '26</span>
+        <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">Wibey, Git Worktrees, Live Dashboard</span>
+          </div>
+          <a href={`${base}warp-swarm.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">W·A·R·P Swarm</h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 25%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">Parallel WARP Execution and Management</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/wibey.png" alt="Wibey" title="Wibey" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/claude.svg" alt="Claude" title="Claude" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/vscode-icon.svg" alt="VSCode" title="VSCode" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/make.svg" alt="GNU Make" title="GNU Make" style="--badge-num: 3" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/git.png" alt="Git" title="Git" style="--badge-num: 4" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right" style="width: 75%; padding: 16px;">
+          <div style="width: 100%; border-radius: 6px; background: rgba(0,0,0,0.42); overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-family: system-ui, -apple-system, sans-serif; table-layout: auto; text-align: left;">
+              <thead>
+                <tr style="background: rgba(0,40,80,0.95);">
+                  <th style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap;"></th>
+                  <th style="padding: 2px 6px 2px 8px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px; overflow: hidden;">JIRA</th>
+                  <th style="padding: 2px 6px 2px 6px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px; overflow: hidden;">PHASE</th>
+                  <th style="padding: 2px 6px 2px 6px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px; overflow: hidden;">STEP</th>
+                  <th class="swarm-detail-col" style="padding: 2px 6px 2px 6px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px; width: 100%;">DETAIL</th>
+                  <th style="padding: 2px 8px 2px 6px; text-align: center; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px; overflow: hidden; white-space: nowrap;">STATUS</th>
+                </tr>
+                <tr><td colspan="6" style="height: 1px; padding: 0; background: rgba(77,189,245,0.40);"></td></tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+                  <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+                  <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2662</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Deploy</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">3.4 — Notify &amp; Complete</td>
+                  <td class="swarm-detail-col" style="padding: 2px 6px 2px 6px; width: 100%; max-width: 0; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Posting to #warp-releases · closing JIRA ticket</div></td>
+                  <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                    <span style="display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(27,188,136,0.18);border:1px solid #1abc9c;color:#1abc9c;font-size:9px;white-space:nowrap;" class="status-badge">✓ Complete</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+                  <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+                  <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2663</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Deploy</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">3.1 — Create PR</td>
+                  <td class="swarm-detail-col" style="padding: 2px 6px 2px 6px; width: 100%; max-width: 0; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Branch protection rule blocked — needs approval</div></td>
+                  <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                    <span style="display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(231,76,60,0.18);border:1px solid #e74c3c;color:#e74c3c;font-size:9px;white-space:nowrap;" class="status-badge">⏹ Stopped</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+                  <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+                  <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2671</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Testing</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">2.2 — Unit Tests</td>
+                  <td class="swarm-detail-col" style="padding: 2px 6px 2px 6px; width: 100%; max-width: 0; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">47/47 passed · 94% coverage</div></td>
+                  <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                    <span style="display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;border:1px solid #4DBDF5;color:#4DBDF5;font-size:9px;white-space:nowrap;" class="status-badge"><span class="status-spinner"></span>In Progress</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+                  <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+                  <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2678</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Build</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">1.3 — Implement Feature</td>
+                  <td class="swarm-detail-col" style="padding: 2px 6px 2px 6px; width: 100%; max-width: 0; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Building capacity forecasting endpoint</div></td>
+                  <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                    <span style="display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;border:1px solid #4DBDF5;color:#4DBDF5;font-size:9px;white-space:nowrap;" class="status-badge"><span class="status-spinner"></span>In Progress</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+                  <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+                  <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2681</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">—</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">—</td>
+                  <td class="swarm-detail-col" style="padding: 2px 6px 2px 6px; width: 100%; max-width: 0; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.30); font-size: 10px;">—</div></td>
+                  <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                    <span style="display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(168,216,160,0.15);border:1px solid #a8d8a0;color:#a8d8a0;font-size:9px;white-space:nowrap;" class="status-badge">🌱 Not Started</span>
+                  </td>
+                </tr>
+                <tr style="background: rgba(8,20,45,0.90);">
+                  <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+                  <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2690</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Prechecks</td>
+                  <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">0.3 — Auth Check</td>
+                  <td class="swarm-detail-col" style="padding: 2px 6px 2px 6px; width: 100%; max-width: 0; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Verifying KITT service account permissions</div></td>
+                  <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                    <span style="display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;border:1px solid #4DBDF5;color:#4DBDF5;font-size:9px;white-space:nowrap;" class="status-badge"><span class="status-spinner"></span>Initializing...</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project2: WARP -->
+      <div style="--bg-color: #000F3A" class="portfolioCard" onclick={`window.location.href='${base}warp.html'`}>
+        <canvas id="warp-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 2;">May '26</span>
+        <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">Wibey, Agentic SDLC, Live Worklog</span>
+          </div>
+          <a href={`${base}warp.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">W·A·R·P <span style="font-size: 0.65em; font-weight: 600;">— <span style="font-size: 1.5em;">W</span><span style="font-size: 0.8em;">IBEY</span> <span style="font-size: 1.5em;">A</span><span style="font-size: 0.8em;">gentic</span> <span style="font-size: 1.5em;">R</span><span style="font-size: 0.8em;">elease</span> <span style="font-size: 1.5em;">P</span><span style="font-size: 0.8em;">ipeline</span></span></h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 35%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">Self-healing, end-to-end SDLC automation, purpose-built for Walmart engineers.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/wibey.png" alt="Wibey" title="Wibey" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/claude.svg" alt="Claude" title="Claude" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/vscode-icon.svg" alt="VSCode" title="VSCode" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/make.svg" alt="GNU Make" title="GNU Make" style="--badge-num: 3" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right" style="width: 65%; display: flex; align-items: center; justify-content: center; padding: 8px 12px;">
+          <div style="width: 100%; display: flex; align-items: center; gap: 0; background: rgba(0,15,58,0.32); border-radius: 10px; padding: 14px 12px;">
+            <!-- JIRA input -->
+            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 5px; border: 1.5px solid #FFC220; border-radius: 7px; background: #0a1550; min-width: 32px;">
+              <div style="width: 20px; height: 22px; border: 1.5px solid #FFC220; border-radius: 3px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 3px;">
+                <div style="position: absolute; top: -5px; width: 10px; height: 6px; background: #FFC220; border-radius: 2px;"></div>
+                <div style="width: 13px; height: 1px; background: rgba(255,194,32,0.55); margin-bottom: 3px;"></div>
+                <div style="width: 13px; height: 1px; background: rgba(255,194,32,0.55);"></div>
+              </div>
+              <span style="font-size: 8px; color: #FFC220; font-weight: 700; letter-spacing: 0.5px; white-space: nowrap;">JIRA</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- Phase 1 -->
+            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #1a5276; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🔨</span>
+              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 1</span>
+              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Build</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- Phase 2 -->
+            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #1a5e2a; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🔬</span>
+              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 2</span>
+              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Test</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- Phase 3 -->
+            <div class="phase-box" style="flex: 1; min-width: 0; padding: 12px 6px; background: #7d3000; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+              <span style="font-size: clamp(16px, 2vw, 24px); line-height: 1;">🚀</span>
+              <span style="color: white; font-size: clamp(10px, 1.3vw, 15px); font-weight: 700; white-space: nowrap;">Phase 3</span>
+              <span style="color: rgba(255,255,255,0.75); font-size: clamp(9px, 1vw, 12px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Deploy</span>
+            </div>
+            <!-- Arrow -->
+            <div style="flex: 0 0 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="10" viewBox="0 0 16 10"><line x1="0" y1="5" x2="10" y2="5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><path d="M8,1 L15,5 L8,9 Z" fill="rgba(255,255,255,0.65)"/></svg>
+            </div>
+            <!-- PROD READY -->
+            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 5px; border: 1.5px solid #27ae60; border-radius: 7px; background: #0d2b1a; min-width: 32px;">
+              <div style="width: 20px; height: 20px; border: 1px solid #27ae60; border-radius: 50%; background: rgba(39,174,96,0.18); display: flex; align-items: center; justify-content: center;">
+                <span style="color: #27ae60; font-size: 11px; line-height: 1;">✓</span>
+              </div>
+              <span style="font-size: 8px; color: #27ae60; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap;">PROD</span>
+              <span style="font-size: 8px; color: #27ae60; white-space: nowrap;">READY</span>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project3: GenAI Analytics -->
+      <div style="--bg-color: #7A5200" class="portfolioCard" onclick={`window.location.href='${base}analytics.html'`}>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 1;">March '26</span>
+        <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">WIBEY, HTMX, FastAPI, BigQuery, PostgreSQL</span>
+          </div>
+          <a href={`${base}analytics.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">GenAI Analytics &amp; Reporting</h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 50%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">AI-Assisted Analytics for Walmart's Hybrid Cloud</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/wibey.png" alt="Wibey" title="Wibey" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/claude.svg" alt="Claude" title="Claude" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/python.png" alt="Python" title="Python" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/htmx.svg" alt="HTMX" title="HTMX" style="--badge-num: 3" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/bigquery.svg" alt="BigQuery" title="BigQuery" style="--badge-num: 4" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" style="--badge-num: 5" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right" style="display: flex; align-items: center; justify-content: center;">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width: 85%; opacity: 0.92;">
+              <line x1="10" y1="30" x2="190" y2="30" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="10" y1="60" x2="190" y2="60" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="10" y1="90" x2="190" y2="90" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="10" y1="120" x2="190" y2="120" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <rect x="20" y="80" width="22" height="60" rx="4" fill="#F39C12"/>
+              <rect x="52" y="48" width="22" height="92" rx="4" fill="#27AE60"/>
+              <rect x="84" y="62" width="22" height="78" rx="4" fill="#F39C12"/>
+              <rect x="116" y="30" width="22" height="110" rx="4" fill="#27AE60"/>
+              <rect x="148" y="52" width="22" height="88" rx="4" fill="#2E86C1"/>
+              <polyline points="31,75 63,43 95,57 127,25 159,47" stroke="rgba(255,255,255,0.9)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="31" cy="75" r="3.5" fill="white"/>
+              <circle cx="63" cy="43" r="3.5" fill="white"/>
+              <circle cx="95" cy="57" r="3.5" fill="white"/>
+              <circle cx="127" cy="25" r="3.5" fill="white"/>
+              <circle cx="159" cy="47" r="3.5" fill="white"/>
+              <line x1="10" y1="142" x2="190" y2="142" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project4: Crop Disease -->
+      <div style="--bg-color: #8C1A2B" class="portfolioCard" onclick={`window.location.href='${base}corn.html'`}>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 1;">May '25</span>
+        <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">CNN, PyTorch, MLFlow</span>
+          </div>
+          <a href={`${base}corn.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">Crop Disease Prediction</h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 50%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">CNN Regression Disease Prediction using Drone Imagery</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/mlflow.png" alt="MLflow" title="MLflow" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/pytorch.png" alt="PyTorch" title="PyTorch" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/jupyter.png" alt="Jupyter" title="Jupyter" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/pandas.png" alt="Pandas" title="Pandas" style="--badge-num: 3" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/sk-learn.png" alt="Scikit-learn" title="Scikit-learn" style="--badge-num: 4" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/numpy.png" alt="NumPy" title="NumPy" style="--badge-num: 5" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/python.png" alt="Python" title="Python" style="--badge-num: 6" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right">
+          <img loading="lazy" src="img/projects/corn/corn-orig-cropped.png" alt="" srcset="" />
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project5: Prosthetic Gait -->
+      <div style="--bg-color: #1E3A2A" class="portfolioCard" onclick={`window.location.href='${base}gait.html'`}>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 1;">March '25</span>
+        <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">CNN-LSTM, PyTorch, Optuna</span>
+          </div>
+          <a href={`${base}gait.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">Prosthetic Gait Analysis</h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 50%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">CNN-LSTM Classification to Analyze Prosthetic Telemetry Data</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/optuna.png" alt="Optuna" title="Optuna" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/pytorch.png" alt="PyTorch" title="PyTorch" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/jupyter.png" alt="Jupyter" title="Jupyter" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/pandas.png" alt="Pandas" title="Pandas" style="--badge-num: 3" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/sk-learn.png" alt="Scikit-learn" title="Scikit-learn" style="--badge-num: 4" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/numpy.png" alt="NumPy" title="NumPy" style="--badge-num: 5" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/python.png" alt="Python" title="Python" style="--badge-num: 6" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right">
+          <img loading="lazy" src="img/projects/gait/gait.png" alt="" srcset="" />
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project6: Skin Cancer Detection -->
+      <div style="--bg-color: #3B1F52" class="portfolioCard" onclick={`window.location.href='${base}skin-cancer.html'`}>
+        <span style="position: absolute; top: 14px; right: 18px; font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.03em; z-index: 1;">August '24</span>
+        <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+          <div style="padding: 14px 24px 0;">
+            <span class="portfolioCardTags">EfficientNetV2, ISIC 2024, pAUC</span>
+          </div>
+          <a href={`${base}skin-cancer.html`} class="stretched-link" style="padding: 4px 24px 0;">
+            <h3 class="portfolioCardTitle">Skin Cancer Detection</h3>
+          </a>
+          <div style="display: flex; flex: 1; overflow: hidden;">
+        <div class="portfolioCardX left" style="width: 50%;">
+          <div class="portfolioCardContent">
+            <p align="left" style="color: white">Binary Skin Lesion Classification — Benign vs. Malignant (ISIC 2024)</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <p style="color: white; margin: 0; text-align: left;">Tech Stack:</p>
+            <span class="badge_icons_wrapper">
+              <img loading="eager" src="./img/badges/pytorch.png" alt="PyTorch" title="PyTorch" style="--badge-num: 0" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/timm.png" alt="TIMM" title="TIMM" style="--badge-num: 1" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/jupyter.png" alt="Jupyter" title="Jupyter" style="--badge-num: 2" class="badge_icon"/>
+              <img loading="eager" src="./img/badges/python.png" alt="Python" title="Python" style="--badge-num: 3" class="badge_icon"/>
+            </span>
+          </div>
+        </div>
+        <div class="portfolioCardX right">
+          <img loading="lazy" src="img/projects/cancer/isic-grid.jpg" alt="Skin lesion samples" />
+        </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</PortfolioLayout>
+
+<script is:inline>
+(function () {
+  var canvas = document.getElementById('warp-bg');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, cx, cy, maxDist;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth  || 260;
+    H = canvas.height = canvas.offsetHeight || 290;
+    cx = W / 2; cy = H / 2;
+    maxDist = Math.hypot(cx, cy) + 200;
+  }
+
+  var PALETTES = [
+    [200,230,255],[200,230,255],[200,230,255],
+    [77,189,245],[77,189,245],
+    [140,200,255],[255,255,255],[180,210,255],
+    [255,194,32],
+  ];
+
+  function Star(preSpread) {
+    this.reset(preSpread);
+  }
+  Star.prototype.reset = function(spread) {
+    this.angle = Math.random() * Math.PI * 2;
+    this.dist  = spread ? Math.random() * Math.hypot(cx, cy) * 0.85 : Math.random() * 6;
+    this.speed = 0.14 + Math.random() * 0.28;
+    this.size  = 0.4 + Math.random() * 0.9;
+    var p = PALETTES[Math.floor(Math.random() * PALETTES.length)];
+    this.r = p[0]; this.g = p[1]; this.b = p[2];
+  };
+  Star.prototype.update = function() {
+    this.speed += this.dist * 0.0000455;
+    if (this.speed > 9.8) this.speed = 9.8;
+    this.dist += this.speed;
+    if (this.dist > maxDist) this.reset(true);
+  };
+  Star.prototype.draw = function() {
+    var trailBack = this.speed * 5.5;
+    var prevDist  = Math.max(0, this.dist - trailBack);
+    var x2 = cx + Math.cos(this.angle) * this.dist;
+    var y2 = cy + Math.sin(this.angle) * this.dist;
+    var x1 = cx + Math.cos(this.angle) * prevDist;
+    var y1 = cy + Math.sin(this.angle) * prevDist;
+    var alpha = Math.min(1, this.dist / 70) * 0.85;
+    if (alpha <= 0) return;
+    var lw = this.size * Math.min(2.5, 0.4 + this.dist / 180);
+    var grad = ctx.createLinearGradient(x1, y1, x2, y2);
+    grad.addColorStop(0, 'rgba(' + this.r + ',' + this.g + ',' + this.b + ',0)');
+    grad.addColorStop(1, 'rgba(' + this.r + ',' + this.g + ',' + this.b + ',' + alpha + ')');
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = lw;
+    ctx.stroke();
+  };
+
+  var NUM_STARS = 160;
+  var stars = [];
+
+  function init() {
+    resize();
+    stars = [];
+    for (var i = 0; i < NUM_STARS; i++) stars.push(new Star(i < NUM_STARS * 0.75));
+    ctx.fillStyle = '#000F3A';
+    ctx.fillRect(0, 0, W, H);
+    frame();
+  }
+
+  function frame() {
+    ctx.fillStyle = 'rgba(0,15,58,0.13)';
+    ctx.fillRect(0, 0, W, H);
+    for (var i = 0; i < stars.length; i++) { stars[i].update(); stars[i].draw(); }
+    requestAnimationFrame(frame);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<script is:inline>
+(function () {
+  var canvas = document.getElementById('swarm-bg');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, cx, cy, nodes = [];
+
+  var COLORS = [
+    [77,  189, 245, 0.55],
+    [77,  189, 245, 0.55],
+    [77,  189, 245, 0.55],
+    [0,   83,  226, 0.42],
+    [0,   83,  226, 0.42],
+    [140, 200, 255, 0.35],
+    [200, 230, 255, 0.30],
+    [255, 194,  32, 0.32],
+  ];
+
+  function randomSize(nearCenter) {
+    var r = Math.random();
+    if (r < 0.55) return 0.5  + Math.random() * 0.9;
+    if (r < 0.85) return 1.8  + Math.random() * 1.4;
+    if (r < 0.97) return 3.8  + Math.random() * 2.0;
+    return nearCenter ? 6.5 + Math.random() * 2.5 : 3.8 + Math.random() * 2.0;
+  }
+
+  function alphaForSize(size, baseAlpha) {
+    if (size < 1.4) return baseAlpha * 0.65;
+    if (size < 3.2) return baseAlpha;
+    if (size < 5.8) return Math.min(1, baseAlpha * 1.25);
+    return Math.min(1, baseAlpha * 1.45);
+  }
+
+  function SwarmNode(x, y, nearCenter) {
+    this.x = x; this.y = y;
+    var numRings = 1 + Math.floor(Math.random() * (nearCenter ? 3 : 2));
+    this.rings = [];
+    for (var i = 0; i < numRings; i++) {
+      var numDots = 2 + Math.floor(Math.random() * 3);
+      var col = COLORS[Math.floor(Math.random() * COLORS.length)];
+      var radius = 10 + Math.random() * (nearCenter ? 38 : 24);
+      var dir = Math.random() > 0.5 ? 1 : -1;
+      var speed = dir * (0.0039 + Math.random() * 0.0091);
+      var sizes = [], angles = [];
+      for (var k = 0; k < numDots; k++) {
+        sizes.push(randomSize(nearCenter));
+        angles.push((k / numDots) * Math.PI * 2 + Math.random());
+      }
+      this.rings.push({ radius: radius, speed: speed, angles: angles, sizes: sizes,
+        r: col[0], g: col[1], b: col[2], baseAlpha: col[3] });
+    }
+  }
+  SwarmNode.prototype.update = function() {
+    for (var i = 0; i < this.rings.length; i++) {
+      var ring = this.rings[i];
+      for (var j = 0; j < ring.angles.length; j++) ring.angles[j] += ring.speed;
+    }
+  };
+  SwarmNode.prototype.dots = function() {
+    var out = [];
+    for (var i = 0; i < this.rings.length; i++) {
+      var ring = this.rings[i];
+      for (var j = 0; j < ring.angles.length; j++) {
+        var size = ring.sizes[j];
+        out.push({
+          x: this.x + Math.cos(ring.angles[j]) * ring.radius,
+          y: this.y + Math.sin(ring.angles[j]) * ring.radius,
+          size: size, r: ring.r, g: ring.g, b: ring.b,
+          alpha: alphaForSize(size, ring.baseAlpha)
+        });
+      }
+    }
+    return out;
+  };
+
+  function buildNodes() {
+    nodes = [];
+    var COLS = 6, ROWS = 5;
+    var cw = W / COLS, ch = H / ROWS;
+    for (var row = 0; row < ROWS; row++) {
+      for (var col = 0; col < COLS; col++) {
+        var x = cw * col + cw * (0.12 + Math.random() * 0.76);
+        var y = ch * row + ch * (0.12 + Math.random() * 0.76);
+        nodes.push(new SwarmNode(x, y, Math.hypot(x - cx, y - cy) < 120));
+      }
+    }
+    for (var i = 0; i < 10; i++) {
+      var sx = Math.random() * W, sy = Math.random() * H;
+      nodes.push(new SwarmNode(sx, sy, Math.hypot(sx - cx, sy - cy) < 120));
+    }
+  }
+
+  var CONNECT_DIST = 72, CONNECT_DIST_SQ = 72 * 72;
+
+  function frame() {
+    ctx.fillStyle = 'rgba(14,94,78,1)';
+    ctx.fillRect(0, 0, W, H);
+
+    var allDots = [];
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].update();
+      var d = nodes[i].dots();
+      for (var j = 0; j < d.length; j++) allDots.push(d[j]);
+    }
+
+    for (var i = 0; i < allDots.length; i++) {
+      var a = allDots[i];
+      for (var j = i + 1; j < allDots.length; j++) {
+        var b = allDots[j];
+        var dx = a.x - b.x, dy = a.y - b.y;
+        if (dx * dx + dy * dy < CONNECT_DIST_SQ) {
+          var prox = 1 - Math.sqrt(dx * dx + dy * dy) / CONNECT_DIST;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = 'rgba(77,189,245,' + (prox * 0.13) + ')';
+          ctx.lineWidth = 0.3 + Math.min(a.size, b.size) * 0.06;
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (var i = 0; i < allDots.length; i++) {
+      var dot = allDots[i];
+      if (dot.size >= 3.8) {
+        ctx.shadowColor = 'rgba(' + dot.r + ',' + dot.g + ',' + dot.b + ',0.5)';
+        ctx.shadowBlur = dot.size * 3;
+      }
+      ctx.beginPath(); ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + dot.r + ',' + dot.g + ',' + dot.b + ',' + dot.alpha + ')';
+      ctx.fill();
+      if (dot.size >= 3.8) { ctx.shadowBlur = 0; ctx.shadowColor = 'transparent'; }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth  || 260;
+    H = canvas.height = canvas.offsetHeight || 290;
+    cx = W / 2; cy = H / 2;
+    buildNodes();
+  }
+
+  function init() { resize(); frame(); }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>

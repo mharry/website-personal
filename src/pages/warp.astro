@@ -1,0 +1,372 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+---
+<ProjectLayout title="Mike Harry - WARP: Wibey Autonomous Release Pipeline" bgColor="#1B3A5C">
+
+<style>
+  .warp-pipeline {
+    --wp-blue: #0071CE;
+    --wp-blue-dark: #004F93;
+    --wp-blue-light: #E8F4FD;
+    --wp-yellow: #FFC220;
+    --wp-gray-50: #F8FAFC;
+    --wp-gray-100: #F1F5F9;
+    --wp-gray-200: #E2E8F0;
+    --wp-gray-600: #475569;
+    --wp-gray-800: #1E293B;
+    --wp-orange: #F97316;
+
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 20px 0 24px;
+  }
+
+  .warp-pipeline .pipeline-track {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .warp-pipeline .pipeline-cap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 10px;
+    min-width: 58px;
+  }
+  .warp-pipeline .pipeline-cap .cap-icon { font-size: clamp(18px, 2.5vw, 26px); }
+  .warp-pipeline .pipeline-cap .cap-label {
+    font-size: clamp(8px, 0.85vw, 10px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--wp-gray-600);
+    line-height: 1.3;
+  }
+
+  .warp-pipeline .pipeline-arrow-h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+    color: var(--wp-blue);
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  .warp-pipeline .phase-card {
+    flex: 1;
+    min-width: 0;
+    border-radius: 14px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .warp-pipeline .phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+  }
+
+  .warp-pipeline .phase-card.ph0 {
+    background: var(--wp-gray-100);
+    border: 2px solid var(--wp-gray-200);
+    flex: 0.85;
+  }
+  .warp-pipeline .phase-card.ph0::before { background: var(--wp-gray-600); }
+
+  .warp-pipeline .phase-card.ph1 {
+    background: var(--wp-blue-light);
+    border: 2px solid #93C5FD;
+  }
+  .warp-pipeline .phase-card.ph1::before { background: var(--wp-blue); }
+
+  .warp-pipeline .phase-card.ph2 {
+    background: #FFF7ED;
+    border: 2px solid #FED7AA;
+    flex: 1.3;
+  }
+  .warp-pipeline .phase-card.ph2::before { background: var(--wp-orange); }
+
+  .warp-pipeline .phase-card.ph3 {
+    background: linear-gradient(135deg, var(--wp-blue) 0%, var(--wp-blue-dark) 100%);
+    border: 2px solid var(--wp-blue);
+    color: white;
+  }
+  .warp-pipeline .phase-card.ph3::before { background: var(--wp-yellow); }
+
+  .warp-pipeline .phase-num {
+    font-size: clamp(8px, 0.9vw, 10px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.65;
+    color: var(--wp-gray-600);
+  }
+  .warp-pipeline .phase-card.ph3 .phase-num { color: white; opacity: 0.7; }
+
+  .warp-pipeline .phase-icon { font-size: clamp(20px, 2.8vw, 28px); }
+
+  .warp-pipeline .phase-title {
+    font-size: clamp(10px, 1.2vw, 14px);
+    font-weight: 800;
+    color: var(--wp-blue-dark);
+    line-height: 1.3;
+  }
+  .warp-pipeline .phase-card.ph3 .phase-title { color: var(--wp-yellow); }
+
+  .warp-pipeline .phase-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 2px;
+    padding: 0;
+  }
+  .warp-pipeline .phase-items li {
+    font-size: clamp(9px, 0.95vw, 11px);
+    line-height: 1.4;
+    padding-left: 14px;
+    position: relative;
+    color: var(--wp-gray-800);
+  }
+  .warp-pipeline .phase-card.ph3 .phase-items li { color: rgba(255,255,255,0.85); }
+  .warp-pipeline .phase-items li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--wp-blue);
+    font-size: 9px;
+    top: 1px;
+  }
+  .warp-pipeline .phase-card.ph3 .phase-items li::before { color: var(--wp-yellow); }
+
+  .warp-pipeline .gate-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .warp-pipeline .gate-chip {
+    background: rgba(249,115,22,0.12);
+    color: #C2410C;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: clamp(7px, 0.7vw, 8px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  .warp-pipeline .pipeline-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+  }
+  .warp-pipeline .pipeline-bottom .pb-tag {
+    background: linear-gradient(90deg, var(--wp-yellow), #FFD966);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: clamp(9px, 1vw, 12px);
+    font-weight: 800;
+    color: var(--wp-blue-dark);
+    letter-spacing: 0.3px;
+  }
+</style>
+
+  <div class="projectPage">
+    <h1>W·A·R·P — Wibey Autonomous Release Pipeline</h1>
+
+    <!-- Overview Section -->
+    <div>
+      <h2><u>Overview</u></h2>
+      <p>
+        WARP is a fully autonomous, end-to-end SDLC workflow that ingests requirements from a JIRA ticket
+        and proceeds through implementation, code review, testing, CI/CD monitoring, and
+        non-production deployment, culminating with a production ready git pull request ready for review — all driven by WIBEY.
+      </p>
+      <p>
+        WARP unifies the entire SDLC workflow inside WIBEY, eliminating the friction of juggling JIRA, GitHub, kitt,
+        Concord, Looper, Gatekeeper, Slack, and the countless other systems used in Walmart software deployment. A
+        single command — <code>/warp TICKET-ID</code> — builds, tests and preps a feature, end to end.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- Pipeline Phases -->
+    <div style="overflow: hidden;">
+      <h2><u>Pipeline Phases</u></h2>
+      <p>WARP executes four sequential phases, each chaining automatically on success:</p>
+
+      <!-- HTML Pipeline Visualization -->
+      <div class="warp-pipeline">
+        <div class="pipeline-track">
+
+          <!-- Input cap -->
+          <div class="pipeline-cap">
+            <div class="cap-icon">📋</div>
+            <div class="cap-label">JIRA<br>Ticket</div>
+          </div>
+          <div class="pipeline-arrow-h">›</div>
+
+          <!-- Phase 0 -->
+          <div class="phase-card ph0">
+            <div class="phase-num">Phase 0</div>
+            <div class="phase-icon">🔍</div>
+            <div class="phase-title">Prechecks</div>
+            <ul class="phase-items">
+              <li>PR detection &amp; state</li>
+              <li>GitHub CLI + branch auth</li>
+              <li>Concord + OAuth tokens</li>
+              <li>Snyk + contract binary</li>
+              <li>Clean working tree</li>
+            </ul>
+          </div>
+
+          <div class="pipeline-arrow-h">›</div>
+
+          <!-- Phase 1 -->
+          <div class="phase-card ph1">
+            <div class="phase-num">Phase 1</div>
+            <div class="phase-icon">🧩</div>
+            <div class="phase-title">Requirements &amp; Implementation</div>
+            <ul class="phase-items">
+              <li>Fetch JIRA requirements</li>
+              <li>Analyze codebase + branch diff</li>
+              <li>Generate implementation plan</li>
+              <li>Autonomously write feature code</li>
+            </ul>
+          </div>
+
+          <div class="pipeline-arrow-h">›</div>
+
+          <!-- Phase 2 -->
+          <div class="phase-card ph2">
+            <div class="phase-num">Phase 2</div>
+            <div class="phase-icon">🧪</div>
+            <div class="phase-title">Testing &amp; Quality Gates</div>
+            <ul class="phase-items">
+              <li>Auto-generate test code</li>
+              <li>Self-heal failures</li>
+              <li>Commit updates</li>
+            </ul>
+            <div class="gate-row">
+              <span class="gate-chip">static</span>
+              <span class="gate-chip">unit</span>
+              <span class="gate-chip">component</span>
+            </div>
+            <div class="gate-row">
+              <span class="gate-chip">coverage</span>
+              <span class="gate-chip">integration</span>
+            </div>
+            <div class="gate-row">
+              <span class="gate-chip">contract</span>
+              <span class="gate-chip">e2e</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow-h">›</div>
+
+          <!-- Phase 3 -->
+          <div class="phase-card ph3">
+            <div class="phase-num">Phase 3</div>
+            <div class="phase-icon">🚀</div>
+            <div class="phase-title">Deployment</div>
+            <ul class="phase-items">
+              <li>Create PR → Kitt CI/CD</li>
+              <li>Qodo AI code review</li>
+              <li>Monitor Concord/Looper</li>
+              <li>Self-heal CI failures</li>
+              <li>Notify via email, Slack &amp; JIRA</li>
+            </ul>
+          </div>
+
+          <div class="pipeline-arrow-h">›</div>
+
+          <!-- Output cap -->
+          <div class="pipeline-cap">
+            <div class="cap-icon">✅</div>
+            <div class="cap-label">Production<br>Ready</div>
+          </div>
+
+        </div>
+        <div class="pipeline-bottom">
+          <span class="pb-tag">🤖 Fully Autonomous — No Human Intervention Required</span>
+        </div>
+      </div>
+
+      <a href="img/projects/warp/WARP_Worklog.png" data-lightbox="WARP live work log">
+        <img src="img/projects/warp/WARP_Worklog.png" alt="WARP work log" title="WARP live work log — real-time phase and step progress with timing (click to enlarge)" style="float: right; width: 280px; border-radius: 10px; opacity: 0.9; margin: 4px 0 16px 24px; cursor: zoom-in;" />
+      </a>
+      <ul>
+        <li>
+          <strong>Phase 0 — Prechecks</strong>: Pre-flight validation checks covering git state,
+          authentication (JIRA, Concord, Akeyless), branch readiness, and environment configuration.
+          Runs first regardless of which phase is requested.
+        </li>
+        <li>
+          <strong>Phase 1 — Implementation</strong>: Fetches JIRA ticket requirements (summary,
+          description, acceptance criteria, subtasks), analyzes the codebase, generates an implementation
+          plan, and autonomously implements the feature.
+        </li>
+        <li>
+          <strong>Phase 2 — Testing</strong>: Executes testing gates for all categories of quality
+          validation — static tests for security and formatting, unit tests, diff coverage, component
+          tests, Snyk security scanning, contract, integration and end-to-end testing. WARP testing is
+          self-healing with up to 9 fix attempts per test gate.
+        </li>
+        <li>
+          <strong>Phase 3 — Deployment</strong>: Creates PR, runs Qodo AI code review (auto-addressing
+          suggestions), monitors CI/CD pipelines (Concord/Looper), self-heals CI failures, and sends
+          Slack, JIRA and email notifications on completion.
+        </li>
+      </ul>
+    </div>
+
+    <br>
+
+    <!-- Multi-Agent Architecture -->
+    <div style="overflow: hidden;">
+      <h2><u>Multi-Agent Architecture</u></h2>
+      <p>
+        WARP uses a tiered multi-agent strategy that matches model capability to task complexity,
+        balancing cost, speed, and reasoning depth:
+      </p>
+      <ul>
+        <li><strong>Claude Opus</strong> — Complex reasoning: implementation planning, failure diagnosis, Qodo review resolution</li>
+        <li><strong>Claude Sonnet</strong> — Code analysis: test generation, PR writing, codebase understanding</li>
+        <li><strong>Claude Haiku</strong> — Lightweight ops: git commands, CI status polling, environment checks</li>
+      </ul>
+      <p>
+        A full WARP run spawns <strong>15+ specialized sub-agents</strong> coordinated by the parent
+        WARP skill. State is tracked across 40+ session variables with step-level granularity, enabling
+        recovery from any interruption point.
+      </p>
+      <p>
+        While WARP is fundamentally an agentic workflow — with multi-model AI agents reasoning, planning,
+        and making decisions at each phase — it pairs those agents with programmatic scripts wherever
+        determinism and efficiency matter most. Tasks like file I/O, output parsing, subprocess
+        orchestration, and structured data extraction are handled programmatically, ensuring AI
+        flexibility where judgment is needed and predictable, fast execution where it is not.
+      </p>
+      <p style="clear: both;">
+        Real-time progress is surfaced via HTML work logs (auto-refreshing, with phase/step timing)
+        and Slack DM notifications. A persistent JIRA comment tracks full pipeline status through
+        every phase transition.
+      </p>
+    </div>
+
+  </div>
+</ProjectLayout>

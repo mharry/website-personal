@@ -1,0 +1,100 @@
+<svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="780" height="380" rx="12" fill="#1e0a2e"/>
+
+  <!-- Title -->
+  <text x="390" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="rgba(255,255,255,0.85)" letter-spacing="1">WARP PIPELINE</text>
+
+  <!-- ══ TRIGGER ══ -->
+  <rect x="30" y="55" width="120" height="50" rx="8" fill="#2d1b4e" stroke="#8e44ad" stroke-width="1.5"/>
+  <text x="90" y="77" text-anchor="middle" font-size="11" font-weight="700" fill="white">/warp</text>
+  <text x="90" y="93" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.7)">TICKET-ID</text>
+
+  <!-- Arrow: trigger → phase0 -->
+  <line x1="150" y1="80" x2="175" y2="80" stroke="#8e44ad" stroke-width="1.5" marker-end="url(#ap)"/>
+
+  <!-- ══ PHASE 0 ══ -->
+  <rect x="175" y="45" width="130" height="70" rx="8" fill="#4a235a" stroke="#a569bd" stroke-width="1.5"/>
+  <text x="240" y="67" text-anchor="middle" font-size="11" font-weight="700" fill="white">Phase 0</text>
+  <text x="240" y="82" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.8)">Prechecks</text>
+  <text x="240" y="97" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.6)">8 validation gates</text>
+  <text x="240" y="109" text-anchor="middle" font-size="8" fill="#a569bd">git · auth · env</text>
+
+  <!-- Arrow: phase0 → phase1 -->
+  <line x1="305" y1="80" x2="330" y2="80" stroke="#a569bd" stroke-width="1.5" marker-end="url(#ap)"/>
+
+  <!-- ══ PHASE 1 ══ -->
+  <rect x="330" y="45" width="130" height="70" rx="8" fill="#1a4a6b" stroke="#2e86c1" stroke-width="1.5"/>
+  <text x="395" y="67" text-anchor="middle" font-size="11" font-weight="700" fill="white">Phase 1</text>
+  <text x="395" y="82" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.8)">Implementation</text>
+  <text x="395" y="97" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.6)">JIRA → code</text>
+  <text x="395" y="109" text-anchor="middle" font-size="8" fill="#2e86c1">Opus · Sonnet</text>
+
+  <!-- Arrow: phase1 → phase2 -->
+  <line x1="460" y1="80" x2="485" y2="80" stroke="#2e86c1" stroke-width="1.5" marker-end="url(#ap)"/>
+
+  <!-- ══ PHASE 2 ══ -->
+  <rect x="485" y="45" width="130" height="70" rx="8" fill="#1a5e2a" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="550" y="67" text-anchor="middle" font-size="11" font-weight="700" fill="white">Phase 2</text>
+  <text x="550" y="82" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.8)">Testing</text>
+  <text x="550" y="97" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.6)">7 quality gates</text>
+  <text x="550" y="109" text-anchor="middle" font-size="8" fill="#27ae60">lint · tests · snyk</text>
+
+  <!-- Arrow: phase2 → phase3 -->
+  <line x1="615" y1="80" x2="640" y2="80" stroke="#27ae60" stroke-width="1.5" marker-end="url(#ap)"/>
+
+  <!-- ══ PHASE 3 ══ -->
+  <rect x="640" y="45" width="120" height="70" rx="8" fill="#7d3000" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="700" y="67" text-anchor="middle" font-size="11" font-weight="700" fill="white">Phase 3</text>
+  <text x="700" y="82" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.8)">Deployment</text>
+  <text x="700" y="97" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.6)">PR · CI · merge</text>
+  <text x="700" y="109" text-anchor="middle" font-size="8" fill="#e67e22">Qodo · Concord</text>
+
+  <!-- ══ DETAILS ROW ══ -->
+
+  <!-- Phase 1 details box -->
+  <rect x="175" y="155" width="280" height="80" rx="6" fill="rgba(46,134,193,0.1)" stroke="rgba(46,134,193,0.4)" stroke-width="1"/>
+  <text x="184" y="174" font-size="9" font-weight="700" fill="#2e86c1">IMPLEMENTATION</text>
+  <text x="184" y="189" font-size="8.5" fill="rgba(255,255,255,0.75)">• Fetch JIRA requirements (AC, subtasks)</text>
+  <text x="184" y="202" font-size="8.5" fill="rgba(255,255,255,0.75)">• Analyze codebase with Sonnet</text>
+  <text x="184" y="215" font-size="8.5" fill="rgba(255,255,255,0.75)">• Opus generates implementation plan &amp; code</text>
+  <text x="184" y="228" font-size="8.5" fill="rgba(255,255,255,0.75)">• Auto-commit to feature branch</text>
+  <!-- connector -->
+  <line x1="395" y1="115" x2="315" y2="155" stroke="rgba(46,134,193,0.4)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Phase 2 details box -->
+  <rect x="175" y="260" width="280" height="95" rx="6" fill="rgba(39,174,96,0.1)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="184" y="279" font-size="9" font-weight="700" fill="#27ae60">QUALITY GATES</text>
+  <text x="184" y="294" font-size="8.5" fill="rgba(255,255,255,0.75)">• Ruff lint &amp; type check</text>
+  <text x="184" y="307" font-size="8.5" fill="rgba(255,255,255,0.75)">• Pytest: unit · component · integration</text>
+  <text x="184" y="320" font-size="8.5" fill="rgba(255,255,255,0.75)">• 100% diff coverage enforcement</text>
+  <text x="184" y="333" font-size="8.5" fill="rgba(255,255,255,0.75)">• Snyk SAST + SCA · Contract tests</text>
+  <text x="184" y="346" font-size="8.5" fill="rgba(255,255,255,0.75)">• 3-tier self-healing fix loop</text>
+  <!-- connector -->
+  <line x1="550" y1="115" x2="315" y2="260" stroke="rgba(39,174,96,0.4)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Phase 3 details box -->
+  <rect x="480" y="155" width="270" height="95" rx="6" fill="rgba(230,126,34,0.1)" stroke="rgba(230,126,34,0.4)" stroke-width="1"/>
+  <text x="489" y="174" font-size="9" font-weight="700" fill="#e67e22">DEPLOYMENT</text>
+  <text x="489" y="189" font-size="8.5" fill="rgba(255,255,255,0.75)">• Create PR with AI-generated description</text>
+  <text x="489" y="202" font-size="8.5" fill="rgba(255,255,255,0.75)">• Qodo AI code review + auto-fix</text>
+  <text x="489" y="215" font-size="8.5" fill="rgba(255,255,255,0.75)">• Monitor Concord / Looper CI</text>
+  <text x="489" y="228" font-size="8.5" fill="rgba(255,255,255,0.75)">• Self-heal CI failures (Opus diagnosis)</text>
+  <text x="489" y="241" font-size="8.5" fill="rgba(255,255,255,0.75)">• Slack DM + JIRA comment notification</text>
+  <!-- connector -->
+  <line x1="700" y1="115" x2="615" y2="155" stroke="rgba(230,126,34,0.4)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Self-heal loop indicator on Phase 2 -->
+  <path d="M 550 115 Q 550 140 520 140 Q 490 140 490 115" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#ag)"/>
+  <text x="520" y="137" text-anchor="middle" font-size="7.5" fill="#27ae60">self-heal</text>
+
+  <!-- Markers -->
+  <defs>
+    <marker id="ap" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="rgba(255,255,255,0.7)"/>
+    </marker>
+    <marker id="ag" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+</svg>

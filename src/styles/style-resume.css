@@ -1,0 +1,77 @@
+.resume-content {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.32;
+  color: #1a1a1a;
+  max-width: 100%;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 4px;
+  text-align: left;
+}
+
+/* Header */
+.resume-content .header { text-align: center; margin-bottom: 7pt; border-bottom: 2px solid #2c5282; padding-bottom: 5pt; }
+.resume-content .header h1 { font-size: 22pt; font-weight: 700; color: #1a1a1a; letter-spacing: 0.5pt; margin-bottom: 4pt; }
+.resume-content .header .contact { font-size: 9.5pt; color: #444; }
+.resume-content .header .contact a { color: #2c5282; text-decoration: none; }
+.resume-content .header .contact span { margin: 0 6pt; color: #999; }
+.resume-content .header .headshot { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 8pt; }
+
+/* Section headers */
+.resume-content h2 {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #2c5282;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+  border-bottom: 1px solid #cbd5e0;
+  padding-bottom: 2pt;
+  margin-top: 13pt;
+  margin-bottom: 5pt;
+}
+
+/* Summary */
+.resume-content .summary { font-size: 10pt; color: #333; margin-bottom: 3pt; }
+.resume-content .summary-para + .summary-para { margin-top: 5pt; }
+
+/* Skills grid */
+.resume-content .skills-grid { display: grid; grid-template-columns: 140px 1fr; gap: 2pt 10pt; font-size: 9.5pt; margin-bottom: 2pt; }
+.resume-content .skills-grid .label { font-weight: 600; color: #2c5282; }
+.resume-content .skills-grid .value { color: #333; }
+
+/* Experience */
+.resume-content .job { margin-bottom: 6pt; }
+.resume-content .job-header { display: flex; justify-content: space-between; align-items: baseline; }
+.resume-content .job-company { font-weight: 700; font-size: 10.5pt; }
+.resume-content .job-location { font-size: 9pt; color: #666; }
+.resume-content .job-role { display: flex; justify-content: space-between; align-items: baseline; margin-top: 2pt; }
+.resume-content .job-title { font-weight: 600; font-style: italic; font-size: 10pt; }
+.resume-content .job-dates { font-size: 9pt; color: #666; white-space: nowrap; }
+.resume-content ul { margin: 2pt 0 0 16pt; }
+.resume-content li { margin-bottom: 1.5pt; font-size: 9.5pt; color: #333; }
+
+/* Projects */
+.resume-content .project { margin-bottom: 7pt; }
+.resume-content .project-title { font-weight: 600; font-size: 10pt; }
+.resume-content .project-sub { font-style: italic; font-size: 9pt; color: #666; }
+.resume-content .project p { font-size: 9.5pt; color: #333; margin-top: 2pt; }
+
+/* Additional experience */
+.resume-content .additional-exp { font-size: 9.5pt; }
+.resume-content .additional-exp .add-role { display: flex; justify-content: space-between; margin-bottom: 1pt; }
+.resume-content .additional-exp .add-company { font-weight: 600; }
+.resume-content .additional-exp .add-title { font-style: italic; }
+.resume-content .additional-exp .add-dates { font-size: 9pt; color: #666; }
+
+/* Education */
+.resume-content .edu-item { margin-bottom: 2pt; font-size: 9.5pt; }
+.resume-content .edu-row { display: flex; justify-content: space-between; }
+.resume-content .edu-item .degree { font-weight: 600; }
+.resume-content .edu-item .school { color: #555; }
+.resume-content .edu-detail { font-size: 9pt; color: #555; margin-left: 12pt; margin-top: 1pt; }
+
+.resume-content .certs { font-size: 9.5pt; color: #333; }
+.resume-content .certs li { margin-bottom: 1pt; }
+
+.resume-content .job-location-line { text-align: right; font-size: 9pt; color: #666; margin-top: 4pt; }

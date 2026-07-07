@@ -1,0 +1,122 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+---
+<ProjectLayout title="Mike Harry - Skin Cancer Detection" bgColor="#3B1F52">
+  <div class="projectPage">
+    <h1>Skin Cancer Detection</h1>
+
+    <!-- Overview Section -->
+    <div style="overflow: hidden;">
+      <h2><u>Overview</u></h2>
+      <div style="width: 340px; float: right; margin-left: 24px; margin-bottom: 12px;">
+        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width: 100%; opacity: 0.9;">
+          <!-- ROC curve area -->
+          <rect x="20" y="10" width="120" height="110" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <!-- Diagonal reference line -->
+          <line x1="20" y1="120" x2="140" y2="10" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="3,2"/>
+          <!-- ROC curve -->
+          <path d="M20,120 C20,80 40,30 80,18 C110,10 135,10 140,10" fill="none" stroke="#c39bd3" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- pAUC shaded region (TPR >= 0.80) -->
+          <path d="M20,34 C30,28 55,16 80,14 C110,10 135,10 140,10 L140,120 L20,120 Z" fill="rgba(155,89,182,0.25)"/>
+          <line x1="20" y1="34" x2="140" y2="34" stroke="#9b59b6" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="143" y="37" font-size="5.5" fill="#9b59b6">TPR=0.80</text>
+          <!-- Axes -->
+          <line x1="20" y1="10" x2="20" y2="120" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+          <line x1="20" y1="120" x2="140" y2="120" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+          <text x="75" y="135" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.6)">FPR</text>
+          <text x="10" y="68" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.6)" transform="rotate(-90,10,68)">TPR</text>
+          <!-- pAUC label -->
+          <text x="90" y="75" text-anchor="middle" font-size="7" font-weight="700" fill="#c39bd3">pAUC</text>
+          <!-- Model label -->
+          <text x="165" y="60" text-anchor="middle" font-size="6.5" font-weight="700" fill="white">EfficientNetV2-S</text>
+          <text x="165" y="72" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.65)">TIMM · PyTorch</text>
+          <text x="165" y="84" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.65)">401K samples</text>
+          <text x="165" y="96" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.65)">HDF5 · ISIC 2024</text>
+        </svg>
+      </div>
+      <p>
+        A deep learning pipeline for binary skin lesion classification — benign vs. malignant — built for the
+        <strong>ISIC 2024 Kaggle Competition</strong> (Skin Lesion Analysis Toward Melanoma Detection). The competition
+        targets early detection of melanoma and other skin cancers from dermoscopic images paired with rich patient
+        metadata, evaluated on partial AUC (pAUC) at a minimum true positive rate of 0.80 to ensure clinically
+        relevant sensitivity.
+      </p>
+      <p>
+        The primary model is an <strong>EfficientNetV2-S</strong> CNN implemented via the TIMM library (PyTorch Image
+        Models), trained on over 400,000 labeled samples. A parallel XGBoost baseline was developed using the 45+
+        patient metadata features to understand the signal available without image data.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- Model Architecture Section -->
+    <div style="overflow: hidden;">
+      <h2><u>Model Architecture</u></h2>
+      <p>
+        The image classification pipeline centers on <strong>EfficientNetV2-S</strong> loaded from the TIMM model
+        registry with ImageNet pretrained weights. The model head is replaced with a binary output for
+        benign/malignant classification.
+      </p>
+      <ul>
+        <li><strong>Backbone</strong>: EfficientNetV2-S (TIMM) — a fused-MBConv architecture that improves training efficiency over EfficientNetV1 by replacing depthwise convolutions in early stages</li>
+        <li><strong>Input Resolution</strong>: 224×224 RGB, with images extracted from HDF5 and decoded via PIL</li>
+        <li><strong>Loss</strong>: Binary cross-entropy with class weighting to address the severe positive/negative imbalance</li>
+        <li><strong>Optimizer</strong>: AdamW with cosine learning rate scheduling</li>
+        <li><strong>Augmentation</strong>: Albumentations pipeline including random horizontal/vertical flips, rotation, brightness/contrast jitter, and normalization to ImageNet statistics</li>
+      </ul>
+      <p>
+        A custom <code>PyTorch Dataset</code> class handles on-the-fly image decoding from HDF5, keeping memory
+        footprint manageable at scale. Training is orchestrated with <strong>HuggingFace Accelerate</strong>
+        for device abstraction across CPU and GPU environments.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- XGBoost Baseline Section -->
+    <div style="overflow: hidden;">
+      <h2><u>XGBoost Metadata Baseline</u></h2>
+      <p>
+        Before training the CNN, an XGBoost classifier was trained on the structured metadata alone to establish
+        a performance baseline and understand which features carry the most discriminative signal without any image
+        data. Feature engineering included:
+      </p>
+      <ul>
+        <li>Encoding of categorical fields (sex, anatomical site) with label and target encoding</li>
+        <li>Log-transform of skewed continuous features (lesion area, aspect ratio)</li>
+        <li>3D TBP localization coordinates and derived spatial features</li>
+        <li>Patient-level aggregation features (lesion count per patient, age-normalized size metrics)</li>
+      </ul>
+      <p>
+        The metadata baseline provided meaningful pAUC signal and served as a reference point for evaluating
+        the incremental contribution of image features. Ensemble approaches combining CNN predictions with
+        XGBoost metadata scores were explored as a path to improved final performance.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- Training Pipeline Section -->
+    <div>
+      <h2><u>Training Pipeline</u></h2>
+      <p>
+        The end-to-end training pipeline was implemented across multiple Jupyter notebooks with modular utilities:
+      </p>
+      <ul>
+        <li><strong>isic-2024-train.ipynb</strong> — EfficientNetV2-S training loop with HDF5 data loading, Albumentations augmentation, and pAUC validation tracking</li>
+        <li><strong>isic-effnet.ipynb</strong> — Architecture exploration and hyperparameter search using the TIMM model zoo</li>
+        <li><strong>xgb-fe.ipynb / xgb-roc.ipynb</strong> — XGBoost feature engineering pipeline and ROC/pAUC analysis</li>
+        <li><strong>scdetection.ipynb</strong> — End-to-end detection experiments combining image and metadata modalities</li>
+        <li><strong>pauc.py</strong> — Custom pAUC implementation matching the competition's evaluation metric</li>
+        <li><strong>load_metrics.ipynb</strong> — Training run analysis and cross-experiment metric comparison</li>
+      </ul>
+      <p>
+        The pAUC metric was implemented as a custom scoring function to enable evaluation during training,
+        providing alignment between the optimization objective and the competition leaderboard metric throughout
+        the experiment cycle.
+      </p>
+    </div>
+
+  </div>
+</ProjectLayout>

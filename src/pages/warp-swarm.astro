@@ -1,0 +1,156 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+---
+<ProjectLayout title="Mike Harry - WARP Swarm: Parallel WARP Orchestration" bgColor="#0E5E4E">
+  <div class="projectPage">
+    <h1>WARP Swarm — Parallel WARP Orchestration</h1>
+
+    <!-- Overview Section -->
+    <div>
+      <h2><u>Overview</u></h2>
+      <p>
+        WARP Swarm is the command center for running multiple WARP pipelines simultaneously. A single
+        developer can drive several JIRA tickets through the full SDLC — implementation, testing, and
+        deployment — in parallel, with a unified view of every pipeline's live state.
+      </p>
+      <p>
+        Swarm achieves this using isolated git
+        worktrees — one per feature branch. Each worktree runs its own independent WARP workflow with
+        no branch-switching overhead, and Swarm aggregates their status into a single dashboard.
+        Swarm is idempotent; it detects existing infrastructure and only creates what's missing,
+        making it safe to run at any time as both a bootstrapper and a repair tool.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- Parallel Execution Architecture -->
+    <div style="overflow: hidden;">
+      <h2><u>Parallel Execution Architecture</u></h2>
+      <p>
+        The parallelism is enabled using git repo worktrees, one for each feature branch. Each
+        worktree is a fully isolated working directory with its own filesystem state, pipeline
+        variables and WARP execution context. Because worktrees share the underlying repo store but
+        keep separate working trees, multiple pipelines can build, test, and deploy concurrently
+        without any branch-switching coordination between them.
+      </p>
+      <p>
+        Swarm handles all of the infrastructure setup automatically:
+      </p>
+      <ul>
+        <li>Creates a bare hub from the current repo or clones from remote</li>
+        <li>Detects and registers all existing git worktrees</li>
+        <li>Shows all tagged tickets in JIRA project eligible for WARP processing</li>
+        <li>Auto-symlinks <code>node_modules</code> across worktrees to avoid redundant installs</li>
+        <li>Runs <code>make install</code> for fresh Python project worktrees</li>
+      </ul>
+    </div>
+
+    <br>
+
+    <!-- Swarm Dashboard -->
+    <div style="overflow: hidden;">
+      <h2><u>Swarm Dashboard</u></h2>
+      <div style="width: 420px; float: left; margin-right: 24px; margin-bottom: 8px; border-radius: 8px; background: rgba(0,0,0,0.42); overflow: hidden;">
+        <table style="width: 100%; border-collapse: collapse; font-family: system-ui, -apple-system, sans-serif; table-layout: fixed; text-align: left;">
+          <colgroup>
+            <col style="width: 20px;"/>
+            <col style="width: 82px;"/>
+            <col style="width: 58px;"/>
+            <col style="width: 100px;"/>
+            <col/>
+            <col style="width: 80px;"/>
+          </colgroup>
+          <thead>
+            <tr style="background: rgba(0,40,80,0.95);">
+              <th style="padding: 2px 4px 2px 8px;"></th>
+              <th style="padding: 2px 6px 2px 8px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px;">JIRA</th>
+              <th style="padding: 2px 6px 2px 6px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px;">PHASE</th>
+              <th style="padding: 2px 6px 2px 6px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px;">STEP</th>
+              <th style="padding: 2px 6px 2px 6px; text-align: left; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px;">DETAIL</th>
+              <th style="padding: 2px 8px 2px 6px; text-align: center; color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700; letter-spacing: 0.6px;">STATUS</th>
+            </tr>
+            <tr><td colspan="6" style="height: 1px; padding: 0; background: rgba(77,189,245,0.40);"></td></tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+              <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+              <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2662</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Deploy</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">3.4 — Notify &amp; Complete</td>
+              <td style="padding: 2px 6px 2px 6px; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Posting to #warp-releases · closing JIRA ticket</div></td>
+              <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                <span style="display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(27,188,136,0.18);border:1px solid #1abc9c;color:#1abc9c;font-size:9px;white-space:nowrap;">✓ Complete</span>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+              <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+              <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2663</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Deploy</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">3.1 — Create PR</td>
+              <td style="padding: 2px 6px 2px 6px; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Branch protection rule blocked — needs approval</div></td>
+              <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                <span style="display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(231,76,60,0.18);border:1px solid #e74c3c;color:#e74c3c;font-size:9px;white-space:nowrap;">⏹ Stopped</span>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+              <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+              <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2671</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Testing</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">2.2 — Unit Tests</td>
+              <td style="padding: 2px 6px 2px 6px; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">47/47 passed · 94% coverage</div></td>
+              <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                <span style="display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;border:1px solid #4DBDF5;color:#4DBDF5;font-size:9px;white-space:nowrap;"><span class="status-spinner"></span>In Progress</span>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+              <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+              <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2678</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Build</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">1.3 — Implement Feature</td>
+              <td style="padding: 2px 6px 2px 6px; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Building capacity forecasting endpoint</div></td>
+              <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                <span style="display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;border:1px solid #4DBDF5;color:#4DBDF5;font-size:9px;white-space:nowrap;"><span class="status-spinner"></span>In Progress</span>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(8,20,45,0.90);">
+              <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+              <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2681</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">—</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">—</td>
+              <td style="padding: 2px 6px 2px 6px; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.30); font-size: 10px;">—</div></td>
+              <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                <span style="display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(168,216,160,0.15);border:1px solid #a8d8a0;color:#a8d8a0;font-size:9px;white-space:nowrap;">🌱 Not Started</span>
+              </td>
+            </tr>
+            <tr style="background: rgba(8,20,45,0.90);">
+              <td style="padding: 2px 4px 2px 8px; overflow: hidden; white-space: nowrap; width: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" style="display:block;"><circle cx="8" cy="8" r="8" fill="#007ACC"/><path fill="white" stroke="white" stroke-width="0.5" d="M11.5 11.19V4.8L7.3 7.99M1.17 6.07a.6.6 0 0 1-.01-.81L2 4.48c.14-.13.48-.18.73 0l2.39 1.83 5.55-5.09c.22-.22.61-.32 1.05-.08l2.8 1.34c.25.15.49.38.49.81v9.49c0 .28-.2.58-.42.7l-3.08 1.48c-.22.09-.64 0-.79-.14L5.11 9.69l-2.38 1.83c-.27.18-.6.13-.74 0l-.84-.77c-.22-.23-.2-.61.04-.84l2.1-1.9"/></svg></td>
+              <td style="padding: 2px 6px 2px 8px; color: #4DBDF5; font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GTPCAP-2690</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Prechecks</td>
+              <td style="padding: 2px 6px 2px 6px; color: rgba(255,255,255,0.70); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">0.3 — Auth Check</td>
+              <td style="padding: 2px 6px 2px 6px; overflow: hidden;"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: rgba(255,255,255,0.50); font-size: 10px;">Verifying KITT service account permissions</div></td>
+              <td style="padding: 2px 8px 2px 6px; overflow: hidden;">
+                <span style="display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;border:1px solid #4DBDF5;color:#4DBDF5;font-size:9px;white-space:nowrap;"><span class="status-spinner"></span>Initializing...</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Swarm generates a live project dashboard viewable in your IDE or standard browser. It
+        aggregates every active WARP pipeline into a single view, updated in real time as phases
+        progress. The dashboard also provides one-click access to the WARP workflow running in your
+        IDE project space where you can manage and address issues if they arise.
+      </p>
+      <ul>
+        <li>All WARP-labelled JIRA tickets with status, priority, and assignee</li>
+        <li>All registered worktrees with pipeline phase, current step, and last-run status</li>
+        <li>One-click access to the work log for any active pipeline run</li>
+        <li>Interactive worktree creation from any unregistered JIRA ticket</li>
+      </ul>
+    </div>
+
+    <br>
+
+  </div>
+</ProjectLayout>

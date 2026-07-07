@@ -1,0 +1,110 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+---
+<ProjectLayout title="Mike Harry - Crop Disease Prediction" bgColor="#C31B35">
+  <div class="projectPage">
+    <h1>Deep Learning for Disease Resistance Classification using Drone Imagery of Corn</h1>
+
+    <!-- Overview Section -->
+    <div>
+      <h2><u>Project Overview</u></h2>
+      <p>
+        Corn breeders currently rely on slow, subjective visual scoring to assess foliage disease resistance across
+        thousands of plots. This project reframes disease assessment as a supervised regression task: training a deep
+        neural network to predict Southern Leaf Blight (SLB) severity directly from drone-collected RGB images. The
+        challenge lies in designing a system that generalizes across seasons and field conditions while managing large,
+        noisy, and imbalanced real-world data.
+      </p>
+    </div>
+
+    <!-- Data Section -->
+    <div style="overflow: hidden;">
+      <h2><u>Data</u></h2>
+      <a href="./img/projects/corn/scoring-scale.png" data-lightbox="Disease Scoring">
+        <img src="./img/projects/corn/scoring-scale.png" title="Disease Scoring (click to enlarge)" alt="Disease Scoring Image" style="float: right; margin-left: 20px; height: 200px; cursor: zoom-in;">
+      </a>
+      <p>
+        The dataset is composed of approximately 10,000 images of the plants and associated foliage health scores
+        on a scale of 1 (highly diseased) to 9 (no disease) with 0.5 size increments. Disease severity scores were
+        collected by PhD students and researchers in plant pathology over two years.
+      </p>
+      <p>
+        Numerous CNN models were trained and tested to evaluate custom model architectures as well as off the
+        shelf model implementations including EfficientNetv2 and ResNet.  Custom models were implemented in PyTorch
+        and using Optuna and MLFlow we were able to train and test numerous variations of convolutional and fully
+        connected layers, adjusting both the depth and width of the models.  Initial training struggled to learn the
+        data effectively with accuracy remaining below 40%.  Deeper evaluation of the images used for training led us
+        to suspect that the models were having difficulty identifying and focusing on appropriate corn foliage and
+        disease features and were not able to filter out and ignore the other non-relevant features in the images like
+        non-corn vegetation, soil and shadows.
+      </p>
+      <a href="./img/projects/corn/corn-image-augmentation.png" data-lightbox="Corn Image Filtering">
+        <img src="./img/projects/corn/corn-image-augmentation.png" title="Corn Image Filtering (click to enlarge)" alt="Corn Image Filtering" style="float: left; margin-right: 20px; width: 400px; cursor: zoom-in;">
+      </a>
+      <p>
+        To augment our training images, we decided to segment the images to filter out the non-relevant features and
+        allow the models train on images that were segmented and filtered to focus on the corn foliage using
+        Facebook's Segment Anything Model 2.  These images show an example of the original image, image mask and
+        filtered image transition used to augment the training images.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- Model Implementation Section -->
+    <div style="overflow: hidden;">
+      <h2><u>Model Implementation</u></h2>
+      <a href="./img/projects/corn/cnn-arch.png" data-lightbox="CNN Architecture">
+        <img src="./img/projects/corn/cnn-arch.png" title="CNN Architecture (click to enlarge)" alt="CNN Architecture" style="float: right; margin-left: 20px; width: 320px; background: white; cursor: zoom-in; border-radius: 8px;">
+      </a>
+      <p>
+        The project is framed as a supervised regression task — predicting a continuous SLB severity score (0–9 in
+        0.5 increments) from a single drone-collected RGB image. Models are evaluated on MAE, R², and
+        snap-score accuracy (prediction rounded to nearest valid label). Data was split 70% training / 15%
+        validation / 15% test.
+      </p>
+      <p>
+        A baseline custom 2-layer CNN with Adam optimizer and MSE regression loss established a starting
+        point (MAE 1.17, R² 0.18). Custom feature engineering — adding an edge map channel and a
+        "brown-surrounded-by-green" pixel mask — improved the baseline to R² 0.245 by directing the
+        network toward disease-relevant regions.
+      </p>
+      <p>
+        Using state of art pre-built CNNs produced a major performance jump. EfficientNet V2 Small and Large were trained
+        on the dataset, and a pre-trained Vision Transformer (ViT) was evaluated both as-is and with a novel
+        directed attention mechanism — a custom loss term that penalizes attention weights misaligned with
+        the brown-leaf disease mask, encouraging the model to focus on lesion regions. Grad-CAM
+        visualizations confirmed the model was attending to disease-relevant areas.
+      </p>
+      <p><strong>Best model results (EfficientNet V2 Small):</strong></p>
+      <ul>
+        <li>MAE: 0.52 — <em>comparable to inter-rater variability between human scorers</em></li>
+        <li>R²: 0.78</li>
+        <li>Snap-score (+/- 0.5) accuracy: 82%</li>
+      </ul>
+      <p><strong>Model comparison:</strong></p>
+      <ul>
+        <li><strong>Baseline CNN</strong>: MAE 1.17 · R² 0.38 · Accuracy 43%</li>
+        <li><strong>EfficientNet V2 Small</strong>: MAE 0.52 · R² 0.78 · Accuracy 82% ✓ Best</li>
+        <li><strong>EfficientNet V2 Large</strong>: MAE 0.56 · R² 0.76 · Accuracy 71%</li>
+        <li><strong>ViT + Attention</strong>: MAE 0.53 · R² 0.73 · Accuracy 74%</li>
+      </ul>
+    </div>
+
+    <br>
+
+    <div>
+      <h2><u>Tech Stack</u></h2>
+      <ul>
+        <li><strong>PyTorch</strong> — primary deep learning framework; supports CUDA, Apple MPS, and CPU training</li>
+        <li><strong>torchvision</strong> — EfficientNet V2 and ViT pre-trained model weights</li>
+        <li><strong>scikit-learn</strong> — evaluation metrics: confusion matrix, classification report, precision/recall/F1</li>
+        <li><strong>NumPy &amp; Pandas</strong> — numerical computation and data handling</li>
+        <li><strong>Pillow</strong> — image loading and preprocessing</li>
+        <li><strong>Matplotlib</strong> — training curves, confusion matrices, and Grad-CAM visualizations</li>
+        <li><strong>SciPy</strong> — Spearman correlation and statistical analysis</li>
+        <li><strong>JupyterLab</strong> — development and experiment environment</li>
+      </ul>
+    </div>
+  </div>
+</ProjectLayout>

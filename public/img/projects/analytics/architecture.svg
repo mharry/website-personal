@@ -1,0 +1,127 @@
+<svg viewBox="0 0 780 400" xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="780" height="400" rx="12" fill="#0e2d47"/>
+
+  <!-- Title -->
+  <text x="390" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="rgba(255,255,255,0.85)" letter-spacing="1">SYSTEM ARCHITECTURE</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TOP ROW: PingFederate + KITT -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- PingFederate SSO -->
+  <rect x="60" y="55" width="160" height="58" rx="8" fill="#7d3c98" stroke="#a569bd" stroke-width="1.5"/>
+  <text x="140" y="79" text-anchor="middle" font-size="12" font-weight="700" fill="white">PingFederate SSO</text>
+  <text x="140" y="96" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)">OAuth 2.0 / Istio</text>
+
+  <!-- KITT CI/CD -->
+  <rect x="560" y="55" width="160" height="58" rx="8" fill="#b7770d" stroke="#d4ac0d" stroke-width="1.5"/>
+  <text x="640" y="79" text-anchor="middle" font-size="12" font-weight="700" fill="white">KITT CI/CD</text>
+  <text x="640" y="96" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)">Docker · WCNP Deploy</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- MIDDLE ROW: Browser + FastAPI + Excel -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- Browser / Client -->
+  <rect x="40" y="175" width="150" height="58" rx="8" fill="#1a6b8a" stroke="#2e9eca" stroke-width="1.5"/>
+  <text x="115" y="199" text-anchor="middle" font-size="12" font-weight="700" fill="white">Browser</text>
+  <text x="115" y="216" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)">HTMX · Jinja2</text>
+
+  <!-- FastAPI (center, larger) -->
+  <rect x="285" y="155" width="210" height="96" rx="10" fill="#154f7a" stroke="#2e86c1" stroke-width="2"/>
+  <text x="390" y="183" text-anchor="middle" font-size="13" font-weight="700" fill="white">FastAPI + Uvicorn</text>
+  <text x="390" y="201" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">Python 3.12 · Async Jobs</text>
+  <rect x="305" y="212" width="74" height="22" rx="4" fill="rgba(255,255,255,0.12)"/>
+  <text x="342" y="227" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.85)">WCNP / K8s</text>
+  <rect x="401" y="212" width="74" height="22" rx="4" fill="rgba(255,255,255,0.12)"/>
+  <text x="438" y="227" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.85)">Pandas · NumPy</text>
+
+  <!-- Excel Export -->
+  <rect x="590" y="175" width="150" height="58" rx="8" fill="#1e6b3a" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="665" y="199" text-anchor="middle" font-size="12" font-weight="700" fill="white">Excel Export</text>
+  <text x="665" y="216" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)">OpenPyXL · Reports</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- BOTTOM ROW: BigQuery + PostgreSQL -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- BigQuery -->
+  <rect x="175" y="310" width="175" height="60" rx="8" fill="#1a5e2a" stroke="#2ecc71" stroke-width="1.5"/>
+  <text x="262" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="white">Google BigQuery</text>
+  <text x="262" y="353" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)">Tekton Quota Metrics</text>
+
+  <!-- PostgreSQL -->
+  <rect x="430" y="310" width="175" height="60" rx="8" fill="#1a4e8a" stroke="#3498db" stroke-width="1.5"/>
+  <text x="517" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="white">PostgreSQL</text>
+  <text x="517" y="353" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)">Capacity Requests</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ARROWS -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- PingFederate → FastAPI (diagonal down-right) -->
+  <line x1="220" y1="84" x2="285" y2="185" stroke="#a569bd" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-purple)"/>
+  <text x="240" y="148" font-size="9" fill="#a569bd" transform="rotate(-50,240,148)">auth</text>
+
+  <!-- KITT → FastAPI (diagonal down-left) -->
+  <line x1="560" y1="84" x2="495" y2="185" stroke="#d4ac0d" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
+  <text x="535" y="148" font-size="9" fill="#d4ac0d" transform="rotate(50,535,148)">deploy</text>
+
+  <!-- Browser ↔ FastAPI -->
+  <line x1="190" y1="204" x2="285" y2="204" stroke="#2e9eca" stroke-width="1.5" marker-end="url(#arr-blue)" marker-start="url(#arr-start-blue)"/>
+  <text x="238" y="197" text-anchor="middle" font-size="9" fill="#2e9eca">HTTP</text>
+
+  <!-- FastAPI → Excel -->
+  <line x1="495" y1="204" x2="590" y2="204" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <text x="542" y="197" text-anchor="middle" font-size="9" fill="#27ae60">export</text>
+
+  <!-- FastAPI → BigQuery -->
+  <line x1="350" y1="251" x2="295" y2="310" stroke="#2ecc71" stroke-width="1.5" marker-end="url(#arr-green2)"/>
+  <text x="308" y="292" font-size="9" fill="#2ecc71" transform="rotate(-55,308,292)">query</text>
+
+  <!-- FastAPI → PostgreSQL -->
+  <line x1="430" y1="251" x2="485" y2="310" stroke="#3498db" stroke-width="1.5" marker-end="url(#arr-blue2)"/>
+  <text x="470" y="292" font-size="9" fill="#3498db" transform="rotate(55,470,292)">query</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ARROW MARKERS -->
+  <!-- ══════════════════════════════════════════ -->
+  <defs>
+    <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#a569bd"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#d4ac0d"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2e9eca"/>
+    </marker>
+    <marker id="arr-start-blue" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2e9eca"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#27ae60"/>
+    </marker>
+    <marker id="arr-green2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2ecc71"/>
+    </marker>
+    <marker id="arr-blue2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <rect x="20" y="370" width="10" height="10" rx="2" fill="#7d3c98"/>
+  <text x="35" y="380" font-size="9" fill="rgba(255,255,255,0.6)">Auth</text>
+  <rect x="75" y="370" width="10" height="10" rx="2" fill="#b7770d"/>
+  <text x="90" y="380" font-size="9" fill="rgba(255,255,255,0.6)">CI/CD</text>
+  <rect x="130" y="370" width="10" height="10" rx="2" fill="#1a6b8a"/>
+  <text x="145" y="380" font-size="9" fill="rgba(255,255,255,0.6)">Client</text>
+  <rect x="185" y="370" width="10" height="10" rx="2" fill="#154f7a"/>
+  <text x="200" y="380" font-size="9" fill="rgba(255,255,255,0.6)">Application</text>
+  <rect x="260" y="370" width="10" height="10" rx="2" fill="#1a5e2a"/>
+  <text x="275" y="380" font-size="9" fill="rgba(255,255,255,0.6)">Data</text>
+  <rect x="305" y="370" width="10" height="10" rx="2" fill="#1e6b3a"/>
+  <text x="320" y="380" font-size="9" fill="rgba(255,255,255,0.6)">Export</text>
+</svg>

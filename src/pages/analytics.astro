@@ -1,0 +1,95 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+---
+<ProjectLayout title="Mike Harry - GenAI Analytics & Reporting" bgColor="#7A5200">
+  <div class="projectPage">
+    <h1>GenAI Analytics &amp; Reporting</h1>
+
+    <!-- Overview Section -->
+    <div>
+      <h2><u>Overview</u></h2>
+      <p>
+        A web-based analytics and reporting platform for Walmart's multicloud capacity management system,
+        built to transform raw infrastructure data into actionable insights at high velocity. The application
+        provides engineering and operations teams with on-demand capacity reports across Walmart's hybrid
+        cloud spanning OpenStack, GCP, and Azure.
+      </p>
+      <p>
+        The platform was designed from the ground up as a GenAI-assisted development showcase — the
+        entire application was built in a fraction of the time of a traditional development cycle by
+        leveraging WIBEY (Walmart's AI coding assistant) for implementation, test generation, and
+        deployment automation.
+      </p>
+    </div>
+
+    <br>
+
+    <!-- GenAI Development Section -->
+    <div style="overflow: hidden;">
+      <h2><u>GenAI-Driven Development</u></h2>
+      <p>
+        This project served as a live demonstration of GenAI-augmented development velocity. The web-based
+        analytics and reporting platform provides engineering and operations teams with on-demand capacity
+        reports across Walmart's hybrid cloud spanning OpenStack, GCP, and Azure showing infrastructure
+        capacity data for compute, storage and network assets for both realtime analysis and long range
+        forecasting and planning.
+      </p>
+      <p style="margin-bottom: 4px;"><strong>Benefits of GenAI Reporting Platform</strong></p>
+      <ul>
+        <li>Report implementation generated from natural language requirements</li>
+        <li>Implementation velocity shown to be orders of magnitude faster than report implementation using PowerBI and Looker</li>
+        <li>Custom coded application functionality provides significant user interaction and display functionality improvements over structured reporting platforms</li>
+      </ul>
+      <a href="img/projects/analytics/screenshot-2.png" data-lightbox="Report Selection UI">
+        <img src="img/projects/analytics/screenshot-2.png" alt="Report Selection UI" title="Report Selection UI (click to enlarge)" style="width: 300px; float: left; margin-right: 20px; border-radius: 8px; cursor: zoom-in;">
+      </a>
+      <p>
+        The core of the platform is a pluggable report module architecture. Each report registers itself
+        at startup with metadata describing its parameters, data sources, and output formats. The web UI
+        dynamically renders parameter forms based on the report's configuration — adding a new report
+        requires only implementing the report module interface.
+      </p>
+      <div style="clear: both; height: 20px;"></div>
+      <a href="img/projects/analytics/screenshot-3.png" data-lightbox="Report Output">
+        <img src="img/projects/analytics/screenshot-3.png" alt="Report Output" title="Report Output (click to enlarge)" style="width: 300px; float: right; margin-left: 20px; border-radius: 8px; cursor: zoom-in;">
+      </a>
+      <p>
+        Reports supported at launch:
+      </p>
+      <ul>
+        <li><strong>Capacity Request Automation</strong> — Analyzes automation rates for capacity requests with Jira enrichment, fiscal quarter filtering, and period-over-period comparison</li>
+        <li><strong>Cloud Compute AVD</strong> — Month-over-month tracking of cloud compute capacity across GCP, Azure, and OpenStack</li>
+        <li><strong>GPU Capacity Demand</strong> — GPU utilization and demand analysis by organization and cloud provider</li>
+        <li><strong>GPU Request Validation</strong> — Cross-references Jira GPU tickets against PostgreSQL capacity records to surface mismatches</li>
+        <li><strong>OpenStack Capacity</strong> — OpenStack-specific compute and storage capacity metrics</li>
+        <li><strong>Automated Reclaim</strong> — Identifies unused or underutilized capacity eligible for reclamation</li>
+      </ul>
+    </div>
+
+    <br>
+
+    <!-- Architecture Section -->
+    <div style="overflow: hidden;">
+      <h2><u>Architecture</u></h2>
+      <p>
+        The application is built on a modern Python stack with a focus on developer velocity and operational
+        simplicity. The backend is a <strong>FastAPI</strong> application exposing both a web UI and a REST
+        API, deployed as a containerized service on <strong>WCNP</strong> (Walmart's Kubernetes platform).
+      </p>
+      <a href="img/projects/analytics/architecture.svg" data-lightbox="System Architecture Diagram">
+        <img src="img/projects/analytics/architecture.svg" alt="System Architecture Diagram" title="System Architecture Diagram (click to enlarge)" style="width: 420px; float: right; margin-left: 20px; border-radius: 8px; cursor: zoom-in;">
+      </a>
+      <ul>
+        <li><strong>Backend</strong>: FastAPI + Uvicorn (Python 3.12), with async job execution for long-running report generation</li>
+        <li><strong>Frontend</strong>: Jinja2 server-side templates with <strong>HTMX</strong> for dynamic UI updates without a JavaScript framework</li>
+        <li><strong>Data Sources</strong>: Google BigQuery (Tekton quota and capacity metrics) + PostgreSQL (capacity request tracking)</li>
+        <li><strong>Data Processing</strong>: Pandas and NumPy for aggregation, trend analysis, and period-over-period comparisons</li>
+        <li><strong>Export</strong>: OpenPyXL for Excel report generation with formatted multi-sheet workbooks</li>
+        <li><strong>Auth</strong>: PingFederate SSO via Istio sidecar; group-based authorization (capacity_mgmt)</li>
+        <li><strong>Deployment</strong>: Docker multi-stage build, KITT CI/CD pipeline, WCNP with liveness/readiness probes</li>
+      </ul>
+    </div>
+
+
+  </div>
+</ProjectLayout>
